@@ -40,6 +40,7 @@
 		A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSEngineerCodeCheckTests.swift; sourceTree = "<group>"; };
 		B392FF3FFE3A55E95F20A4D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D1BABC155F7A3A7942D0FD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D6CBEA2E58B0679426EC2353 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DB1489B19FC4FFE9F1C5A5E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				34A0A263C9404C6503D916AE /* project.yml */,
+				D6CBEA2E58B0679426EC2353 /* README.md */,
 				BAFA0F0C9252C5952CDF0042 /* iOSEngineerCodeCheck */,
 				FD802A8E04185AD1B788862F /* iOSEngineerCodeCheckTests */,
 				3A16EFE136049DACAACA6E81 /* Products */,

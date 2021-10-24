@@ -44,7 +44,25 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 
 ---
 
-## 
+## セットアップ方法
+
+
+```
+    git clone https://github.com/techiro/yumemi-codecheck.git
+```
+
+```
+    cd yumemi-codecheck
+    xcodegen
+    open iOSEngineerCodeCheck.xcodeproj
+```
+
+※xcodegenが導入されていない環境であれば、Homebrewなどで環境構築してください
+参考:https://github.com/yonaskolb/XcodeGen
+
+
+
+## 期間
 2021/10/23~2021/10/30までの課題
 
 ## 開発環境
