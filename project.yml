@@ -1,0 +1,34 @@
+name: iOSEngineerCodeCheck
+options:
+  bundleIdPrefix: jp.yumemi.iOSEngineerCodeCheck
+  deploymentTarget:
+    iOS: 15.0
+  generateEmptyDirectories: true
+  
+fileGroups:
+  - project.yml
+  - README.md
+
+targets:
+  iOSEngineerCodeCheck:
+    platform: iOS
+    type: application
+    sources:
+      - iOSEngineerCodeCheck/
+    postBuildScripts:
+      - name: HelloWorld
+        script: |
+                  echo "HelloWorld."
+  iOSEngineerCodeCheckTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - iOSEngineerCodeCheckTests/
+      
+    dependencies:
+      - target: iOSEngineerCodeCheck
+
+    scheme:
+      testTargets:
+        - iOSEngineerCodeCheck
+
