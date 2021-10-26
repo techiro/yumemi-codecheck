@@ -17,16 +17,17 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     var task: URLSessionTask?
     var word: String = ""
     var url: String!
-    var index: Int!
+    var idx: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         searchBar.text = "GitHubのリポジトリを検索できるよー"
         searchBar.delegate = self
     }
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // TODO: 検索バーの初期値はなし、プレースホルダーで示してあげる。
+        // ↓こうすれば初期のテキストを消せる
         searchBar.text = ""
         return true
     }
@@ -88,7 +89,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 
     }
 
-    // MARK: 画面遷移
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)

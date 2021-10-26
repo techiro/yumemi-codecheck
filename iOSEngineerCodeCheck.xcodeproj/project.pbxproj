@@ -10,8 +10,12 @@
 		10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */; };
 		134F8F26637EB2970968C830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */; };
 		3E6E549A33156BD70ED9D958 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175C057F84ABF7F2577F7333 /* Main.storyboard */; };
+<<<<<<< HEAD
 		4FE6C38F571BC3DFA4FA7016 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016DD8B0B80E66A15593CBD4 /* DetailViewController.swift */; };
 		565028E8BDCCF88FD48FE126 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7CD6A07EE3609B2433327 /* SearchViewController.swift */; };
+=======
+		7E4592521D1564BC7A127B44 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79DCB1AD87CB2DD95CE0AF /* ViewController2.swift */; };
+>>>>>>> main
 		9B3CC8962FD3DA095C888C2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1489B19FC4FFE9F1C5A5E2 /* SceneDelegate.swift */; };
 		DF84DB92B34EB4865AF100B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A8E3D20D3113FF9FCBCB07 /* Assets.xcassets */; };
 		F0B9ED491D783579718B91D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF458B889AAA755C9DEAAD9 /* AppDelegate.swift */; };
@@ -37,6 +41,10 @@
 		4C96E5B8D64BE48ED6D9BB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57A8E3D20D3113FF9FCBCB07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B935AC8E5D3ED3711037096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		7A79DCB1AD87CB2DD95CE0AF /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		8E76905B146107548745F05F /* iOSEngineerCodeCheckTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = iOSEngineerCodeCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSEngineerCodeCheckTests.swift; sourceTree = "<group>"; };
 		B392FF3FFE3A55E95F20A4D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -85,7 +93,12 @@
 				8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */,
 				175C057F84ABF7F2577F7333 /* Main.storyboard */,
 				DB1489B19FC4FFE9F1C5A5E2 /* SceneDelegate.swift */,
+<<<<<<< HEAD
 				8521F3699A6AC868F32F526B /* ViewController */,
+=======
+				90546DBA0C7B1F7E3A88CD26 /* ViewController.swift */,
+				7A79DCB1AD87CB2DD95CE0AF /* ViewController2.swift */,
+>>>>>>> main
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -213,7 +226,12 @@
 				F0B9ED491D783579718B91D7 /* AppDelegate.swift in Sources */,
 				4FE6C38F571BC3DFA4FA7016 /* DetailViewController.swift in Sources */,
 				9B3CC8962FD3DA095C888C2B /* SceneDelegate.swift in Sources */,
+<<<<<<< HEAD
 				565028E8BDCCF88FD48FE126 /* SearchViewController.swift in Sources */,
+=======
+				2E80B776790C51F5DA2CE9E7 /* ViewController.swift in Sources */,
+				7E4592521D1564BC7A127B44 /* ViewController2.swift in Sources */,
+>>>>>>> main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

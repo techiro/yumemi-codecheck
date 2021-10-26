@@ -26,12 +26,7 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-<<<<<<< HEAD:iOSEngineerCodeCheck/ViewController/DetailViewController.swift
         let repository = searchVC.repositorys[searchVC.index]
-=======
-        let repo = vc1.repo[vc1.idx]
->>>>>>> main:iOSEngineerCodeCheck/ViewController2.swift
-
         languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
         starsLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
         watchersLabel.text = "\(repository["wachers_count"] as? Int ?? 0) watchers"
@@ -42,12 +37,8 @@ class ViewController2: UIViewController {
     }
 
     func getImage() {
-
-<<<<<<< HEAD:iOSEngineerCodeCheck/ViewController/DetailViewController.swift
+        
         let repository  = searchVC.repositorys[searchVC.index]
-=======
-        let repo = vc1.repo[vc1.idx]
->>>>>>> main:iOSEngineerCodeCheck/ViewController2.swift
 
         titleLabel.text = repository["full_name"] as? String
 
