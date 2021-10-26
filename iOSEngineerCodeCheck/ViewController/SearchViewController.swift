@@ -17,8 +17,8 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     var task: URLSessionTask?
     var word: String = ""
     var url: String!
-    var idx: Int!
-
+    var index: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
