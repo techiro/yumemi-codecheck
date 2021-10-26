@@ -41,7 +41,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
 
         if !word.isEmpty {
             url = "https://api.github.com/search/repositories?q=\(word!)"
-            //TODO: 文字列デコード
+            // TODO: 文字列デコード
 
             task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
                 do {
@@ -90,6 +90,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
 
     // MARK: 画面遷移
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        index = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
 
     }
