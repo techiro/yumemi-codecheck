@@ -11,7 +11,7 @@
         <!--Root View Controller-->
         <scene sceneID="0Yw-Vc-k2Q">
             <objects>
-                <tableViewController id="MOh-CZ-3ki" customClass="ViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MOh-CZ-3ki" customClass="SearchViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fpt-Ev-QNW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,17 +55,17 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="ktq-eC-ZBq"/>
                     <connections>
                         <outlet property="searchBar" destination="6rq-CD-Hob" id="jZP-6d-9gx"/>
-                        <segue destination="AHY-RL-7mG" kind="show" identifier="Detail" id="qqd-8W-4W1"/>
+                        <segue destination="AHY-RL-7mG" kind="show" identifier="Detail" id="JP4-qi-s8q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xer-fe-JeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-498" y="137"/>
         </scene>
-        <!--View Controller2-->
+        <!--Detail View Controller-->
         <scene sceneID="JOC-74-7VT">
             <objects>
-                <viewController id="AHY-RL-7mG" customClass="ViewController2" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AHY-RL-7mG" customClass="DetailViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gp-25-lRZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,13 +137,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="J6o-vL-S1z"/>
                     <connections>
-                        <outlet property="forksLabel" destination="ZMv-4f-X2V" id="t0I-c7-gO7"/>
-                        <outlet property="imageView" destination="Iim-eb-8Ad" id="Msw-We-T6M"/>
-                        <outlet property="issuesLabel" destination="dzg-K8-h2L" id="yGl-lB-l03"/>
-                        <outlet property="languageLabel" destination="s3M-QO-Kom" id="Ig2-K0-PkV"/>
-                        <outlet property="starsLabel" destination="0WZ-UA-R8O" id="WXZ-oY-SxK"/>
-                        <outlet property="titleLabel" destination="4q1-pG-WSB" id="J5u-Zm-4yP"/>
-                        <outlet property="watchersLabel" destination="lQC-lo-IqN" id="nUb-Nf-ub3"/>
+                        <outlet property="forksLabel" destination="ZMv-4f-X2V" id="jbG-Rc-AYW"/>
+                        <outlet property="imageView" destination="Iim-eb-8Ad" id="pAZ-6b-jmn"/>
+                        <outlet property="issuesLabel" destination="dzg-K8-h2L" id="5MC-mT-JDw"/>
+                        <outlet property="languageLabel" destination="s3M-QO-Kom" id="6SM-m4-FCl"/>
+                        <outlet property="starsLabel" destination="0WZ-UA-R8O" id="XE9-UU-urK"/>
+                        <outlet property="titleLabel" destination="4q1-pG-WSB" id="N4S-T4-wrg"/>
+                        <outlet property="watchersLabel" destination="lQC-lo-IqN" id="fVf-yd-gNN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj0-Ld-RTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
