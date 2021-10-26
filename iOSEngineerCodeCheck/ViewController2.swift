@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController2: UIViewController {
     
-    @IBOutlet weak var ImgView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var TtlLbl: UILabel!
     
@@ -48,7 +48,7 @@ class ViewController2: UIViewController {
                 URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
                     let img = UIImage(data: data!)!
                     DispatchQueue.main.async {
-                        self.ImgView.image = img
+                        self.imageView.image = img
                     }
                 }.resume()
             }
