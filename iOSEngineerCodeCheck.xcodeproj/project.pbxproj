@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E82B571EE48BE83D067CEB3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		2A005CE0B62AC58EB8E4777D /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF458B889AAA755C9DEAAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34A0A263C9404C6503D916AE /* project.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = project.yml; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		430338F2C85D60C5393AED47 = {
 			isa = PBXGroup;
 			children = (
+				0E82B571EE48BE83D067CEB3 /* .swiftlint.yml */,
 				34A0A263C9404C6503D916AE /* project.yml */,
 				D6CBEA2E58B0679426EC2353 /* README.md */,
 				BAFA0F0C9252C5952CDF0042 /* iOSEngineerCodeCheck */,
@@ -114,7 +116,7 @@
 			buildPhases = (
 				F16E647BA0623E071923210E /* Sources */,
 				F11253BDF1F68922F9D868E6 /* Resources */,
-				2A208684E3F3B8EC2CE028B5 /* HelloWorld */,
+				E4BCB97C626AC241F988B4F4 /* swiftlint */,
 			);
 			buildRules = (
 			);
@@ -167,7 +169,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2A208684E3F3B8EC2CE028B5 /* HelloWorld */ = {
+		E4BCB97C626AC241F988B4F4 /* swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -176,14 +178,14 @@
 			);
 			inputPaths = (
 			);
-			name = HelloWorld;
+			name = swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"HelloWorld.\"\n";
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

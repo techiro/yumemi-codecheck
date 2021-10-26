@@ -8,6 +8,7 @@ options:
 fileGroups:
   - project.yml
   - README.md
+  - .swiftlint.yml
 
 targets:
   iOSEngineerCodeCheck:
@@ -16,9 +17,13 @@ targets:
     sources:
       - iOSEngineerCodeCheck/
     postBuildScripts:
-      - name: HelloWorld
+      - name: swiftlint
         script: |
-                  echo "HelloWorld."
+                if which swiftlint >/dev/null; then
+                    swiftlint
+                else
+                    echo "SwiftLint does not exist, download from https://github.com/realm/SwiftLint"
+                fi
   iOSEngineerCodeCheckTests:
     platform: iOS
     type: bundle.unit-test
