@@ -17,17 +17,16 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     var task: URLSessionTask?
     var word: String!
     var url: String!
-    var idx: Int!
+    var index: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         searchBar.text = "GitHubのリポジトリを検索できるよー"
         searchBar.delegate = self
     }
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
+        // TODO: 検索バーの初期値はなし、プレースホルダーで示してあげる。
         searchBar.text = ""
         return true
     }
@@ -42,6 +41,8 @@ class ViewController: UITableViewController, UISearchBarDelegate {
 
         if !word.isEmpty {
             url = "https://api.github.com/search/repositories?q=\(word!)"
+            //TODO: 文字列デコード
+
             task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
                 do {
                     if let obj = try JSONSerialization.jsonObject(with: data!) as? [String: Any] {
@@ -66,7 +67,7 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "Detail"{
-            let dtl = segue.destination as! ViewController2
+            let dtl = segue.destination as! DetailViewController
             dtl.vc1 = self
         }
 
@@ -87,9 +88,8 @@ class ViewController: UITableViewController, UISearchBarDelegate {
 
     }
 
+    // MARK: 画面遷移
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
-        idx = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
 
     }

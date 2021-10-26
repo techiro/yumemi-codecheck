@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController2: UIViewController {
+class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
 
@@ -26,7 +26,7 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let repo = vc1.repo[vc1.idx]
+        let repo = vc1.repo[vc1.index]
 
         languageLabel.text = "Written in \(repo["language"] as? String ?? "")"
         starsLabel.text = "\(repo["stargazers_count"] as? Int ?? 0) stars"
@@ -39,7 +39,7 @@ class ViewController2: UIViewController {
 
     func getImage() {
 
-        let repo = vc1.repo[vc1.idx]
+        let repo = vc1.repo[vc1.index]
 
         titleLabel.text = repo["full_name"] as? String
 
