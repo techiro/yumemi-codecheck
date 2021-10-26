@@ -57,8 +57,10 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
     open iOSEngineerCodeCheck.xcodeproj
 ```
 
-※xcodegenが導入されていない環境であれば、Homebrewなどで環境構築してください
-参考:https://github.com/yonaskolb/XcodeGen
+※xcodegen,swiftlintがローカルの環境に導入されていなければ、Homebrewなどで環境構築してください
+参考:
+- xcodegen https://github.com/yonaskolb/XcodeGen
+- swiftlint https://qiita.com/OSR108/items/4b23b13bd23feada1921#2-homebrew-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB
 
 
 
