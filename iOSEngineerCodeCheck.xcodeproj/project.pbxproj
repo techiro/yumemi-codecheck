@@ -10,6 +10,7 @@
 		039FEF9B272A6D3400E1EE3E /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEF9A272A6D3400E1EE3E /* URL+Extension.swift */; };
 		039FEF9E272A7F6200E1EE3E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEF9D272A7F6200E1EE3E /* Repository.swift */; };
 		039FEFA1272A88A600E1EE3E /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFA0272A88A600E1EE3E /* GithubAPI.swift */; };
+		039FEFA3272AA27400E1EE3E /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFA2272AA27400E1EE3E /* ImageAPI.swift */; };
 		10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */; };
 		134F8F26637EB2970968C830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */; };
 		3E6E549A33156BD70ED9D958 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175C057F84ABF7F2577F7333 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		039FEF9A272A6D3400E1EE3E /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		039FEF9D272A7F6200E1EE3E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		039FEFA0272A88A600E1EE3E /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		039FEFA2272AA27400E1EE3E /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		0E82B571EE48BE83D067CEB3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		2A005CE0B62AC58EB8E4777D /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF458B889AAA755C9DEAAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				039FEFA0272A88A600E1EE3E /* GithubAPI.swift */,
+				039FEFA2272AA27400E1EE3E /* ImageAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				9B3CC8962FD3DA095C888C2B /* SceneDelegate.swift in Sources */,
 				039FEF9B272A6D3400E1EE3E /* URL+Extension.swift in Sources */,
 				565028E8BDCCF88FD48FE126 /* SearchViewController.swift in Sources */,
+				039FEFA3272AA27400E1EE3E /* ImageAPI.swift in Sources */,
 				039FEF9E272A7F6200E1EE3E /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

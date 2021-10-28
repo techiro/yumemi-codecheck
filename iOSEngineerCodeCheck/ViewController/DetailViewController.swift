@@ -29,7 +29,7 @@ class DetailViewController: UIViewController {
         forksLabel.text = "\(repository.forksCount ?? 0) forks"
         issuesLabel.text = "\(repository.openIssuesCount ?? 0) open issues"
 
-        GitHubAPI.getImage(from: repository.owner?.avatarUrl) { [weak self] result in
+        ImageAPI.getImage(from: repository.owner?.avatarUrl) { [weak self] result in
             switch result {
             case .success(let data):
                 let img = UIImage(data: data)
