@@ -12,8 +12,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
 
     var repositories: [Repository] = []
-
-    var task: URLSessionTask?
     var word: String = ""
     var url: String!
     var index: Int!
@@ -26,10 +24,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
-    }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
