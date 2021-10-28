@@ -11,46 +11,35 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-
     @IBOutlet weak var titleLabel: UILabel!
-
     @IBOutlet weak var languageLabel: UILabel!
-
     @IBOutlet weak var starsLabel: UILabel!
     @IBOutlet weak var watchersLabel: UILabel!
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var issuesLabel: UILabel!
 
-    var searchVC: SearchViewController!
+    var repository: Repository!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let repository = searchVC.repositorys[searchVC.index]
-        languageLabel.text = "Written in \(repository["language"] as? String ?? "")"
-        starsLabel.text = "\(repository["stargazers_count"] as? Int ?? 0) stars"
-        watchersLabel.text = "\(repository["wachers_count"] as? Int ?? 0) watchers"
-        forksLabel.text = "\(repository["forks_count"] as? Int ?? 0) forks"
-        issuesLabel.text = "\(repository["open_issues_count"] as? Int ?? 0) open issues"
-        getImage()
+        titleLabel.text = repository.fullName
+        languageLabel.text = "Written in \(repository.language ?? "")"
+        starsLabel.text = "\(repository.stargazersCount ?? 0) stars"
+        watchersLabel.text = "\(repository.wachersCount ?? 0) watchers"
+        forksLabel.text = "\(repository.forksCount ?? 0) forks"
+        issuesLabel.text = "\(repository.openIssuesCount ?? 0) open issues"
 
-    }
-
-    func getImage() {
-        let repository = searchVC.repositorys[searchVC.index]
-
-        titleLabel.text = repository["full_name"] as? String
-
-        if let owner = repository["owner"] as? [String: Any] {
-            if let imgURL = owner["avatar_url"] as? String {
-                URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
-                    let img = UIImage(data: data!)!
-                    DispatchQueue.main.async {
-                        self.imageView.image = img
-                    }
-                }.resume()
+        ImageAPI.getImage(from: repository.owner?.avatarUrl) { [weak self] result in
+            switch result {
+            case .success(let data):
+                let img = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self?.imageView.image = img
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
-
     }
 
 }
