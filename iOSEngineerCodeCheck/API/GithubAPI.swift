@@ -39,3 +39,6 @@ final class GitHubAPI {
     }
 }
 
+extension GitHubAPI {
+    static let baseURL: URL = URL(string: "https://api.github.com/search/repositories")!
+}
