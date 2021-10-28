@@ -6,14 +6,6 @@
 disabled_rules:
 # コードの記載のない改行を許可するため
 - trailing_whitespace
-# force_castは場合によっては使用するため
-- force_cast
-# closureが返す値を明示しておきたい場合があるため
-- unused_closure_parameter
-
-#　buttonでよく用いるため
-- multiple_closures_with_trailing_closure
-
 # デフォルト無効のルールのうち、有効にするもの
 opt_in_rules:
 - closure_end_indentation
@@ -38,8 +30,6 @@ opt_in_rules:
 
 # 追加したOSSライブラリは対象に含めない
 excluded:
-- Pods/
-- .build
 
 # 1行あたりの文字数制限変更
 line_length: 160
