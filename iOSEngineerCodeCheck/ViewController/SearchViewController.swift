@@ -40,10 +40,10 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 print(error.localizedDescription)
             }
         }
+        self.view.endEditing(true)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         if segue.identifier == "Detail"{
             let detailVC = segue.destination as! DetailViewController
             detailVC.searchVC = self
@@ -68,7 +68,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
-
+        self.view.endEditing(true)
     }
 
 }
