@@ -12,8 +12,6 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
 
     var repositories: [Repository] = []
-    var word: String = ""
-    var url: String!
     var index: Int!
 
     override func viewDidLoad() {
@@ -57,9 +55,9 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = UITableViewCell()
-        let rp = repositories[indexPath.row]
-        cell.textLabel?.text = rp.fullName
-        cell.detailTextLabel?.text = rp.language
+        let repository = repositories[indexPath.row]
+        cell.textLabel?.text = repository.fullName
+        cell.detailTextLabel?.text = repository.language
         cell.tag = indexPath.row
         return cell
 
