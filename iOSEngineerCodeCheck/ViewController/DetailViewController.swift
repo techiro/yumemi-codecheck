@@ -26,30 +26,24 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let repository = searchVC.repositories[searchVC.index]
+        titleLabel.text = repository.fullName
         languageLabel.text = "Written in \(repository.language ?? "")"
         starsLabel.text = "\(repository.stargazersCount ?? 0) stars"
         watchersLabel.text = "\(repository.wachersCount ?? 0) watchers"
         forksLabel.text = "\(repository.forksCount ?? 0) forks"
         issuesLabel.text = "\(repository.openIssuesCount ?? 0) open issues"
-        getImage()
-    }
 
-    func getImage() {
-        let repository = searchVC.repositories[searchVC.index]
-
-        titleLabel.text = repository.fullName
-
-        if let owner = repository.owner {
-            if let imgURL = owner.avatarUrl {
-                URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
-                    let img = UIImage(data: data!)!
-                    DispatchQueue.main.async {
-                        self.imageView.image = img
-                    }
-                }.resume()
+        GitHubAPI.getImage(from: "error") { [weak self] result in
+            switch result {
+            case .success(let data):
+                let img = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self?.imageView.image = img
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
-
     }
 
 }
