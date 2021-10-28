@@ -45,5 +45,3 @@ extension GitHubAPI {
 struct ResponseError: Error {
     var statusCode: Int
 }
-
-struct ImageError: Error {}

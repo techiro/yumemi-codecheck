@@ -8,6 +8,7 @@
 import Foundation
 
 final class ImageAPI {
+
     static func getImage(from url: String?, completion: @escaping (Result<Data, Error>) -> Void) {
 
         if let imgURL = url {
@@ -21,3 +22,5 @@ final class ImageAPI {
         }
     }
 }
+
+struct ImageError: Error {}
