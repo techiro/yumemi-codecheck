@@ -33,10 +33,23 @@ final class GitHubAPI {
                 print("エラーが発生しました：\(error)")
             }
         }
-
         task.resume()
+    }
+
+    static func getImage(from url: String?, completion: @escaping (Result<Data, Error>) -> Void) {
+
+        if let imgURL = url {
+            URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
+                if let data = data {
+                    completion(.success(data))
+                } else {
+                    completion(.failure(ImageError()))
+                }
+            }.resume()
+        }
 
     }
+
 }
 
 extension GitHubAPI {
@@ -46,3 +59,5 @@ extension GitHubAPI {
 struct ResponseError: Error {
     var statusCode: Int
 }
+
+struct ImageError: Error {}
