@@ -10,7 +10,10 @@ import Foundation
 final class GitHubAPI {
 
     static func fetchRepositories(word: String, completion: @escaping (Result<SearchRepositoriesResponse, Error>) -> Void) {
-        let url = GitHubAPI.baseURL.queryItemAdded(name: "q", value: word)!
+        guard let url = GitHubAPI.baseURL.queryItemAdded(name: "q", value: word) else {
+            completion(.failure(ParseError()))
+            return
+        }
 
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
 
@@ -27,7 +30,6 @@ final class GitHubAPI {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let result: SearchRepositoriesResponse = try decoder.decode(SearchRepositoriesResponse.self, from: data)
-
                 completion(.success(result))
             } catch {
                 print("エラーが発生しました：\(error)")
@@ -40,8 +42,11 @@ final class GitHubAPI {
 
 extension GitHubAPI {
     static let baseURL: URL = URL(string: "https://api.github.com/search/repositories")!
-}
 
-struct ResponseError: Error {
-    var statusCode: Int
+    struct ResponseError: Error {
+        var statusCode: Int
+    }
+
+    struct ParseError: Error {}
+
 }
