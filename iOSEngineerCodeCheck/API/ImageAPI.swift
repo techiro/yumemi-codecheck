@@ -8,10 +8,11 @@
 import Foundation
 
 final class ImageAPI {
+
     static func getImage(from url: String?, completion: @escaping (Result<Data, Error>) -> Void) {
 
         if let imgURL = url {
-            URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, res, err) in
+            URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, _, _) in
                 if let data = data {
                     completion(.success(data))
                 } else {
@@ -21,3 +22,5 @@ final class ImageAPI {
         }
     }
 }
+
+struct ImageError: Error {}

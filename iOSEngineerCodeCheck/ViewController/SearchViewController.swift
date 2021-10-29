@@ -20,6 +20,17 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Detail"{
+            let detailVC = segue.destination as! DetailViewController
+            detailVC.repository = repositories[index]
+        }
+    }
+
+}
+
+// MARK: 検索機能
+extension SearchViewController {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }
@@ -36,31 +47,38 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                var message = ""
+                switch error {
+                case is GitHubAPI.ParseError:
+                    message = "文字列エラー"
+                case is GitHubAPI.ResponseError:
+                    message = "通信エラー"
+                default:
+                    print("default")
+                }
+                self?.displayAlert(message: message)
+
             }
         }
         self.view.endEditing(true)
     }
+}
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail"{
-            let detailVC = segue.destination as! DetailViewController
-            detailVC.repository = repositories[index]
-        }
-    }
-
+// MARK: テーブルView
+extension SearchViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = UITableViewCell()
-        let repository = repositories[indexPath.row]
-        cell.textLabel?.text = repository.fullName
-        cell.detailTextLabel?.text = repository.language
-        cell.tag = indexPath.row
-        return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as? RepositoryTableViewCell else {
+            return UITableViewCell()
+        }
 
+        let repository = repositories[indexPath.row]
+        cell.repository = repository
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -68,5 +86,21 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         performSegue(withIdentifier: "Detail", sender: self)
         self.view.endEditing(true)
     }
+}
 
+// MARK: Alertを表示
+
+extension SearchViewController {
+    func displayAlert(message: String) {
+        let alert: UIAlertController = UIAlertController(title: message, message: "もう一度検索してください", preferredStyle: .alert)
+
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { _ in
+            print("OK")
+        }
+
+        alert.addAction(defaultAction)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
 }

@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		039FEF9B272A6D3400E1EE3E /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEF9A272A6D3400E1EE3E /* URL+Extension.swift */; };
-		039FEF9E272A7F6200E1EE3E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEF9D272A7F6200E1EE3E /* Repository.swift */; };
-		039FEFA1272A88A600E1EE3E /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFA0272A88A600E1EE3E /* GithubAPI.swift */; };
-		039FEFA3272AA27400E1EE3E /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFA2272AA27400E1EE3E /* ImageAPI.swift */; };
 		10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */; };
 		134F8F26637EB2970968C830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */; };
+		38B65B299363B4780428D2B1 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A98E83697B8E0366EC1EDC9 /* ImageAPI.swift */; };
 		3E6E549A33156BD70ED9D958 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175C057F84ABF7F2577F7333 /* Main.storyboard */; };
 		4FE6C38F571BC3DFA4FA7016 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016DD8B0B80E66A15593CBD4 /* DetailViewController.swift */; };
 		565028E8BDCCF88FD48FE126 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D7CD6A07EE3609B2433327 /* SearchViewController.swift */; };
+		77F8C7BD34CDD8A04C2DD40B /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CBEA1FE87477C9A9E9CC4A /* Repository.swift */; };
+		7F48A94E9F2F93A73798B06D /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD20D0F012AE982082CDDE /* URL+Extension.swift */; };
+		8C6D522BB3EDF1738EB845EE /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E2EB24093403E6DC4238BE /* GithubAPI.swift */; };
 		9B3CC8962FD3DA095C888C2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1489B19FC4FFE9F1C5A5E2 /* SceneDelegate.swift */; };
+		D087D197CC43E5836F81CF64 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B672C55629328AC0FF21F0 /* RepositoryTableViewCell.swift */; };
 		DF84DB92B34EB4865AF100B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A8E3D20D3113FF9FCBCB07 /* Assets.xcassets */; };
 		F0B9ED491D783579718B91D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AF458B889AAA755C9DEAAD9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -33,20 +34,21 @@
 
 /* Begin PBXFileReference section */
 		016DD8B0B80E66A15593CBD4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		039FEF9A272A6D3400E1EE3E /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
-		039FEF9D272A7F6200E1EE3E /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		039FEFA0272A88A600E1EE3E /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
-		039FEFA2272AA27400E1EE3E /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		0E82B571EE48BE83D067CEB3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		2A005CE0B62AC58EB8E4777D /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF458B889AAA755C9DEAAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30D7CD6A07EE3609B2433327 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		34A0A263C9404C6503D916AE /* project.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = project.yml; sourceTree = "<group>"; };
+		3A98E83697B8E0366EC1EDC9 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
+		49B672C55629328AC0FF21F0 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		4C96E5B8D64BE48ED6D9BB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52E2EB24093403E6DC4238BE /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		57A8E3D20D3113FF9FCBCB07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B935AC8E5D3ED3711037096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		79CBEA1FE87477C9A9E9CC4A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8E76905B146107548745F05F /* iOSEngineerCodeCheckTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = iOSEngineerCodeCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSEngineerCodeCheckTests.swift; sourceTree = "<group>"; };
+		A9BD20D0F012AE982082CDDE /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		B392FF3FFE3A55E95F20A4D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D1BABC155F7A3A7942D0FD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D6CBEA2E58B0679426EC2353 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -54,29 +56,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		039FEF99272A6D0C00E1EE3E /* Extensions */ = {
+		2863B505E45AE8E582F97C78 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				039FEF9A272A6D3400E1EE3E /* URL+Extension.swift */,
+				A9BD20D0F012AE982082CDDE /* URL+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		039FEF9C272A7F5000E1EE3E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				039FEF9D272A7F6200E1EE3E /* Repository.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		039FEF9F272A885700E1EE3E /* API */ = {
-			isa = PBXGroup;
-			children = (
-				039FEFA0272A88A600E1EE3E /* GithubAPI.swift */,
-				039FEFA2272AA27400E1EE3E /* ImageAPI.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		3A16EFE136049DACAACA6E81 /* Products */ = {
@@ -104,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				016DD8B0B80E66A15593CBD4 /* DetailViewController.swift */,
+				49B672C55629328AC0FF21F0 /* RepositoryTableViewCell.swift */,
 				30D7CD6A07EE3609B2433327 /* SearchViewController.swift */,
 			);
 			path = ViewController;
@@ -112,18 +98,35 @@
 		BAFA0F0C9252C5952CDF0042 /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
-				039FEF9F272A885700E1EE3E /* API */,
-				039FEF9C272A7F5000E1EE3E /* Models */,
-				039FEF99272A6D0C00E1EE3E /* Extensions */,
 				2AF458B889AAA755C9DEAAD9 /* AppDelegate.swift */,
 				57A8E3D20D3113FF9FCBCB07 /* Assets.xcassets */,
 				D1BABC155F7A3A7942D0FD66 /* Info.plist */,
 				8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */,
 				175C057F84ABF7F2577F7333 /* Main.storyboard */,
 				DB1489B19FC4FFE9F1C5A5E2 /* SceneDelegate.swift */,
+				BC8C2C540BBC72C2FA00608E /* API */,
+				2863B505E45AE8E582F97C78 /* Extensions */,
+				CDA4A149073D9A9F1D20DB06 /* Models */,
 				8521F3699A6AC868F32F526B /* ViewController */,
 			);
 			path = iOSEngineerCodeCheck;
+			sourceTree = "<group>";
+		};
+		BC8C2C540BBC72C2FA00608E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				52E2EB24093403E6DC4238BE /* GithubAPI.swift */,
+				3A98E83697B8E0366EC1EDC9 /* ImageAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CDA4A149073D9A9F1D20DB06 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				79CBEA1FE87477C9A9E9CC4A /* Repository.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		FD802A8E04185AD1B788862F /* iOSEngineerCodeCheckTests */ = {
@@ -178,6 +181,8 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+				};
 			};
 			buildConfigurationList = E4D0A38D0CA0623B076EF58F /* Build configuration list for PBXProject "iOSEngineerCodeCheck" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -245,13 +250,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0B9ED491D783579718B91D7 /* AppDelegate.swift in Sources */,
-				039FEFA1272A88A600E1EE3E /* GithubAPI.swift in Sources */,
 				4FE6C38F571BC3DFA4FA7016 /* DetailViewController.swift in Sources */,
+				8C6D522BB3EDF1738EB845EE /* GithubAPI.swift in Sources */,
+				38B65B299363B4780428D2B1 /* ImageAPI.swift in Sources */,
+				77F8C7BD34CDD8A04C2DD40B /* Repository.swift in Sources */,
+				D087D197CC43E5836F81CF64 /* RepositoryTableViewCell.swift in Sources */,
 				9B3CC8962FD3DA095C888C2B /* SceneDelegate.swift in Sources */,
-				039FEF9B272A6D3400E1EE3E /* URL+Extension.swift in Sources */,
 				565028E8BDCCF88FD48FE126 /* SearchViewController.swift in Sources */,
-				039FEFA3272AA27400E1EE3E /* ImageAPI.swift in Sources */,
-				039FEF9E272A7F6200E1EE3E /* Repository.swift in Sources */,
+				7F48A94E9F2F93A73798B06D /* URL+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
