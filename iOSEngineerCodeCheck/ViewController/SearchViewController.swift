@@ -20,6 +20,17 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         searchBar.delegate = self
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Detail"{
+            let detailVC = segue.destination as! DetailViewController
+            detailVC.repository = repositories[index]
+        }
+    }
+
+}
+
+// MARK: 検索機能
+extension SearchViewController {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }
@@ -36,18 +47,15 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
+                self?.displayAlert()
             }
         }
         self.view.endEditing(true)
     }
+}
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Detail"{
-            let detailVC = segue.destination as! DetailViewController
-            detailVC.repository = repositories[index]
-        }
-    }
-
+// MARK: テーブルView
+extension SearchViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
@@ -68,5 +76,4 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         performSegue(withIdentifier: "Detail", sender: self)
         self.view.endEditing(true)
     }
-
 }
