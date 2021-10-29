@@ -47,7 +47,17 @@ extension SearchViewController {
                 }
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.displayAlert()
+                var message = ""
+                switch error {
+                case is GitHubAPI.ParseError:
+                    message = "文字列エラー"
+                case is GitHubAPI.ResponseError:
+                    message = "通信エラー"
+                default:
+                    print("default")
+                }
+                self?.displayAlert(message: message)
+
             }
         }
         self.view.endEditing(true)
@@ -81,14 +91,16 @@ extension SearchViewController {
 // MARK: Alertを表示
 
 extension SearchViewController {
-    func displayAlert() {
-        let alert: UIAlertController = UIAlertController(title: "ネットワークエラー", message: "もう一度検索してください", preferredStyle: .alert)
+    func displayAlert(message: String) {
+        let alert: UIAlertController = UIAlertController(title: message, message: "もう一度検索してください", preferredStyle: .alert)
 
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { _ in
             print("OK")
         }
 
         alert.addAction(defaultAction)
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true, completion: nil)
+        }
     }
 }
