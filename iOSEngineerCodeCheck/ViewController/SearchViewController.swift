@@ -77,3 +77,18 @@ extension SearchViewController {
         self.view.endEditing(true)
     }
 }
+
+// MARK: Alertを表示
+
+extension SearchViewController {
+    func displayAlert() {
+        let alert: UIAlertController = UIAlertController(title: "ネットワークエラー", message: "もう一度検索してください", preferredStyle: .alert)
+
+        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { _ in
+            print("OK")
+        }
+
+        alert.addAction(defaultAction)
+        present(alert, animated: true, completion: nil)
+    }
+}
