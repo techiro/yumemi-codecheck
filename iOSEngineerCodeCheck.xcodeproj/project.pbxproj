@@ -10,7 +10,6 @@
 		039FEFB0272CF99C00E1EE3E /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFAF272CF99C00E1EE3E /* AlertViewController.swift */; };
 		039FEFB2272D0A0500E1EE3E /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFB1272D0A0500E1EE3E /* Owner.swift */; };
 		039FEFB4272D0A3200E1EE3E /* SearchRepositoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFB3272D0A3200E1EE3E /* SearchRepositoriesResponse.swift */; };
-		10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */; };
 		134F8F26637EB2970968C830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */; };
 		23ADDFCEDC0FB9921A51E93B /* GithubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF61C4DF89F2DDD4D8B6C612 /* GithubAPITests.swift */; };
 		38B65B299363B4780428D2B1 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A98E83697B8E0366EC1EDC9 /* ImageAPI.swift */; };
@@ -54,7 +53,6 @@
 		6B935AC8E5D3ED3711037096 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79CBEA1FE87477C9A9E9CC4A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8E76905B146107548745F05F /* iOSEngineerCodeCheckTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = iOSEngineerCodeCheckTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSEngineerCodeCheckTests.swift; sourceTree = "<group>"; };
 		A9BD20D0F012AE982082CDDE /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		B392FF3FFE3A55E95F20A4D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D1BABC155F7A3A7942D0FD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 			children = (
 				DF61C4DF89F2DDD4D8B6C612 /* GithubAPITests.swift */,
 				B392FF3FFE3A55E95F20A4D7 /* Info.plist */,
-				A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */,
 			);
 			path = iOSEngineerCodeCheckTests;
 			sourceTree = "<group>";
@@ -252,7 +249,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				23ADDFCEDC0FB9921A51E93B /* GithubAPITests.swift in Sources */,
-				10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
