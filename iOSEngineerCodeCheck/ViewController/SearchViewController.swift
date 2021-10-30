@@ -7,10 +7,10 @@
 //
 
 import UIKit
-class SearchViewController: UITableViewController, UISearchBarDelegate {
+class SearchViewController: UITableViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
-
+    var alert = AlertViewController()
     var repositories: [Repository] = []
     var index: Int!
 
@@ -18,6 +18,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         searchBar.delegate = self
+        alert.delegate = self
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,7 +31,7 @@ class SearchViewController: UITableViewController, UISearchBarDelegate {
 }
 
 // MARK: 検索機能
-extension SearchViewController {
+extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }
@@ -38,6 +39,7 @@ extension SearchViewController {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
         guard let word = searchBar.text else { return }
+
         GitHubAPI().fetchRepositories(word: word) { [weak self] result in
             switch result {
             case .success(let repositories):
@@ -47,13 +49,17 @@ extension SearchViewController {
                 }
             case .failure(let error):
                 switch error {
-                case .statusCode(let message):
-                    self?.displayAlert(message: message)
-                case .parse(let message):
-                    self?.displayAlert(message: message)
+                case .statusCode(let title):
+                    self?.alert.setAlert(title: title, message: "もう一度検索してください")
+
+                case .parse(let title):
+                    self?.alert.setAlert(title: title, message: "もう一度検索してください")
                 }
             }
-            self?.view.endEditing(true)
+            DispatchQueue.main.async {
+                self?.view.endEditing(true)
+            }
+
         }
     }
 }
@@ -83,15 +89,9 @@ extension SearchViewController {
 }
 
 // MARK: Alertを表示
-extension SearchViewController {
-    func displayAlert(message: String) {
-        let alert: UIAlertController = UIAlertController(title: message, message: "もう一度検索してください", preferredStyle: .alert)
+extension SearchViewController: UIAlertDelegate {
 
-        let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { _ in
-            print("OK")
-        }
-
-        alert.addAction(defaultAction)
+    func displayAlert(alert: UIAlertController) {
         DispatchQueue.main.async { [weak self] in
             self?.present(alert, animated: true, completion: nil)
         }
