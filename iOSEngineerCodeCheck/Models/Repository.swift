@@ -7,11 +7,20 @@
 
 import Foundation
 
-struct SearchRepositoriesResponse: Decodable {
+struct SearchRepositoriesResponse: Decodable, Equatable {
     let items: [Repository]
+
+    static func == (lhs: SearchRepositoriesResponse, rhs: SearchRepositoriesResponse) -> Bool {
+        lhs.items == rhs.items
+    }
+
 }
 
-struct Repository: Decodable {
+struct Repository: Decodable, Equatable {
+    static func == (lhs: Repository, rhs: Repository) -> Bool {
+        lhs.id == rhs.id
+    }
+
     let id: Int
     let fullName: String
     let language: String?
