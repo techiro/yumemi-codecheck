@@ -48,23 +48,36 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 
 
 ```
-    git clone https://github.com/techiro/yumemi-codecheck.git
+git clone https://github.com/techiro/yumemi-codecheck.git
 ```
 
 ```
-    cd yumemi-codecheck
-    xcodegen
-    open iOSEngineerCodeCheck.xcodeproj
+cd yumemi-codecheck
+xcodegen
+open iOSEngineerCodeCheck.xcodeproj
 ```
+
+
 
 ※xcodegen,swiftlintがローカルの環境に導入されていなければ、Homebrewなどで環境構築してください
+
+```
+brew install xcodegen
+```
 
 参考:
 - xcodegen https://github.com/yonaskolb/XcodeGen
 - swiftlint https://qiita.com/OSR108/items/4b23b13bd23feada1921#2-homebrew-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB
 
-## ⚒工夫した点
+## デモ
 
+https://user-images.githubusercontent.com/35694946/139536016-0e811916-5b3c-4505-adcb-06e39a928625.mp4
+
+https://user-images.githubusercontent.com/35694946/139536140-43a4cf21-d975-4f12-b740-78e0e427d149.mp4
+
+
+
+## ⚒工夫した点
 - Delegateメソッドを使用して、なるべく単一の責務になるように工夫した。
 - APIを叩いて、画像データが取得できていない時には初期画像を表示して、画像が取得できていないことを明示
 - 開発はGitHubのIssue/PRベースで開発を進めて、なるべく細かくコミットするように心がけました。
@@ -74,19 +87,20 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 - UnitTestの導入を行った結果、エラーが出た時の処理に気づくことができました。
 - DarkMode対応
 
-## 実装できなかったこと
+## ❌実装できなかったこと
 - TableViewのCellに画像を表示するところ
 - 画像や、リポジトリのロード時にローディングアニメーションをつけるところ (詳細画面では初期画像を設定)
+- ユニットテストのカバレッジが低いところ
+- UITestが出来なかったところ
 
 ## 🗂フォルダ構成
 
-### ViewControllers
+### ViewControllersフォルダ
 - SearchViewController 起動画面
 - DetailViewController 詳細画面
 - RepositoryTableViewCell　テーブルのセル
 - AlertViewController  失敗時のアラートを表示
 
-### Models
 
 ### Modelフォルダ（APIの構造体やその構造体を使ったデータ取得モデル）
 
@@ -97,7 +111,7 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 ### Extensionフォルダ
 - URLのqueryを追加するコード
 
-### API 実際にAPIを叩いて、データを取得する部分
+### APIフォルダ (実際にAPIを叩いて、データを取得する部分)
 - GithubAPI GithubのAPIを叩くコード
 - ImageAPI 画像URLから画像を取得するコード
 
@@ -106,7 +120,6 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 2021/10/23~2021/10/30までの課題
 
 ## 開発環境
-
 - macOS 11.3.1（20E241）
 - Xcode 13.0(13A233)
 
