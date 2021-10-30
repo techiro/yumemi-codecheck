@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		039FEFB0272CF99C00E1EE3E /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039FEFAF272CF99C00E1EE3E /* AlertViewController.swift */; };
 		10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */; };
 		134F8F26637EB2970968C830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */; };
 		23ADDFCEDC0FB9921A51E93B /* GithubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF61C4DF89F2DDD4D8B6C612 /* GithubAPITests.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		016DD8B0B80E66A15593CBD4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		039FEFAF272CF99C00E1EE3E /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		0E82B571EE48BE83D067CEB3 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		2A005CE0B62AC58EB8E4777D /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AF458B889AAA755C9DEAAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				016DD8B0B80E66A15593CBD4 /* DetailViewController.swift */,
 				49B672C55629328AC0FF21F0 /* RepositoryTableViewCell.swift */,
 				30D7CD6A07EE3609B2433327 /* SearchViewController.swift */,
+				039FEFAF272CF99C00E1EE3E /* AlertViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -184,8 +187,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = E4D0A38D0CA0623B076EF58F /* Build configuration list for PBXProject "iOSEngineerCodeCheck" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -256,6 +257,7 @@
 				F0B9ED491D783579718B91D7 /* AppDelegate.swift in Sources */,
 				4FE6C38F571BC3DFA4FA7016 /* DetailViewController.swift in Sources */,
 				8C6D522BB3EDF1738EB845EE /* GithubAPI.swift in Sources */,
+				039FEFB0272CF99C00E1EE3E /* AlertViewController.swift in Sources */,
 				38B65B299363B4780428D2B1 /* ImageAPI.swift in Sources */,
 				77F8C7BD34CDD8A04C2DD40B /* Repository.swift in Sources */,
 				D087D197CC43E5836F81CF64 /* RepositoryTableViewCell.swift in Sources */,
