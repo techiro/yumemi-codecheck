@@ -30,4 +30,28 @@ final class ImageAPI {
     }
 }
 
-struct ImageError: Error {}
+
+#if DEBUG
+class MockImageAPI {
+    var isSuccess: Bool
+    init(isSuccess: Bool = true) {
+        self.isSuccess = isSuccess
+
+    }
+
+    func getImage(from url: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void) {
+
+        if isSuccess {
+            completion(.success(Data()))
+        } else {
+            completion(.failure(.URLError(message: "mock URLError")))
+        }
+    }
+}
+
+extension MockImageAPI {
+    static let failedURL = "https://avatars.githubusercontent.com/u/..."
+    static let successURL = "https://avatars.githubusercontent.com/u/8255800?v=4"
+}
+
+#endif

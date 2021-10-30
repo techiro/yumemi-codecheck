@@ -52,8 +52,12 @@ extension GitHubAPI {
     }
 }
 
+#if DEBUG
 class MockGitHubAPI: GitHubAPIProtocol {
-    var isSuccess = true
+    var isSuccess: Bool
+    init(isSuccess: Bool = true) {
+        self.isSuccess = isSuccess
+    }
     func fetchRepositories(word: String, completion: @escaping (Result<SearchRepositoriesResponse, GitHubAPI.APIError>) -> Void) {
         if isSuccess {
             completion(.success(SearchRepositoriesResponse.mock()))
@@ -63,3 +67,5 @@ class MockGitHubAPI: GitHubAPIProtocol {
     }
 
 }
+
+#endif
