@@ -9,7 +9,7 @@
 import UIKit
 class SearchViewController: UITableViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak private var searchBar: UISearchBar!
     var alert = AlertViewController()
     var repositories: [Repository] = []
     var index: Int!

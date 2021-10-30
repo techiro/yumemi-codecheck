@@ -8,8 +8,8 @@
 import UIKit
 
 class RepositoryTableViewCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var detail: UILabel!
+    @IBOutlet private weak var title: UILabel!
+    @IBOutlet private weak var detail: UILabel!
 
     var repository: Repository? {
         didSet {

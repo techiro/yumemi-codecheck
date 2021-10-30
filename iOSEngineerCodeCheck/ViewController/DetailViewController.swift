@@ -10,13 +10,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var starsLabel: UILabel!
-    @IBOutlet weak var watchersLabel: UILabel!
-    @IBOutlet weak var forksLabel: UILabel!
-    @IBOutlet weak var issuesLabel: UILabel!
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var languageLabel: UILabel!
+    @IBOutlet weak private var starsLabel: UILabel!
+    @IBOutlet weak private var watchersLabel: UILabel!
+    @IBOutlet weak private var forksLabel: UILabel!
+    @IBOutlet weak private var issuesLabel: UILabel!
 
     var repository: Repository!
     var alert = AlertViewController()
