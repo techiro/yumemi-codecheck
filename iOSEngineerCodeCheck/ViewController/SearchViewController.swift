@@ -20,6 +20,7 @@ class SearchViewController: UITableViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         alert.delegate = self
+        self.tableView.register(RepositoryCell.self, forCellReuseIdentifier: "RepositoryCell")
         self.apiRequest = GitHubAPI()
     }
 
@@ -74,12 +75,11 @@ extension SearchViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as? RepositoryTableViewCell else {
-            return UITableViewCell()
-        }
-
         let repository = repositories[indexPath.row]
-        cell.repository = repository
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath)
+        cell.textLabel?.text = repository.fullName
+        cell.accessoryType = .disclosureIndicator
+        cell.detailTextLabel?.text = repository.language
         return cell
     }
 
