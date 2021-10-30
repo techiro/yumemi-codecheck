@@ -16,17 +16,17 @@ final class ImageAPI {
                 if let data = data {
                     completion(.success(data))
                 } else {
-                    completion(.failure(.DataError(message: "画像が読み込めません")))
+                    completion(.failure(.dataError(message: "画像が読み込めません")))
                 }
             }.resume()
         } else {
-            completion(.failure(.URLError(message: "urlが正しくありません")))
+            completion(.failure(.urlError(message: "urlが正しくありません")))
         }
     }
 
     enum ImageError: Error {
-        case URLError(message: String)
-        case DataError(message: String)
+        case urlError(message: String)
+        case dataError(message: String)
     }
 }
 
@@ -43,7 +43,7 @@ class MockImageAPI {
         if isSuccess {
             completion(.success(Data()))
         } else {
-            completion(.failure(.URLError(message: "mock URLError")))
+            completion(.failure(.urlError(message: "mock URLError")))
         }
     }
 }

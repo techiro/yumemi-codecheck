@@ -44,9 +44,9 @@ class DetailViewController: UIViewController {
                 }
             case .failure(let error):
                 switch error {
-                case .DataError(let title):
+                case .dataError(let title):
                     self?.alert.setAlert(title: title, message: "")
-                case .URLError(let title):
+                case .urlError(let title):
                     self?.alert.setAlert(title: title, message: "")
                 }
             }
