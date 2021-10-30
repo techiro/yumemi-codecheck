@@ -38,7 +38,7 @@ extension SearchViewController {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
         guard let word = searchBar.text else { return }
-        GitHubAPI.fetchRepositories(word: word) { [weak self] result in
+        GitHubAPI().fetchRepositories(word: word) { [weak self] result in
             switch result {
             case .success(let repositories):
                 self?.repositories = repositories.items
@@ -46,21 +46,15 @@ extension SearchViewController {
                     self?.tableView.reloadData()
                 }
             case .failure(let error):
-                print(error.localizedDescription)
-                var message = ""
                 switch error {
-                case is GitHubAPI.ParseError:
-                    message = "文字列エラー"
-                case is GitHubAPI.ResponseError:
-                    message = "通信エラー"
-                default:
-                    print("default")
+                case .statusCode(let message):
+                    self?.displayAlert(message: message)
+                case .parse(let message):
+                    self?.displayAlert(message: message)
                 }
-                self?.displayAlert(message: message)
-
             }
+            self?.view.endEditing(true)
         }
-        self.view.endEditing(true)
     }
 }
 
@@ -89,7 +83,6 @@ extension SearchViewController {
 }
 
 // MARK: Alertを表示
-
 extension SearchViewController {
     func displayAlert(message: String) {
         let alert: UIAlertController = UIAlertController(title: message, message: "もう一度検索してください", preferredStyle: .alert)
