@@ -20,7 +20,7 @@ class DetailViewController: UIViewController {
 
     // swiftlint:disable implicitly_unwrapped_optional
     var repository: Repository!
-    var alert = AlertViewController()
+    private var alert = AlertViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()

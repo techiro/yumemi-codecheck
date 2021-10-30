@@ -10,15 +10,17 @@ import UIKit
 class SearchViewController: UITableViewController {
 
     @IBOutlet weak private var searchBar: UISearchBar!
-    var alert = AlertViewController()
-    var repositories: [Repository] = []
+    private var alert = AlertViewController()
+    private var repositories: [Repository] = []
     // swiftlint:disable implicitly_unwrapped_optional
-    var selectedRepository: Repository!
+    private var selectedRepository: Repository!
+    private var apiRequest: GitHubAPIProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
         alert.delegate = self
+        self.apiRequest = GitHubAPI()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -40,7 +42,7 @@ extension SearchViewController: UISearchBarDelegate {
 
         guard let word = searchBar.text else { return }
 
-        GitHubAPI().fetchRepositories(word: word) { [weak self] result in
+        apiRequest.fetchRepositories(word: word) { [weak self] result in
             switch result {
             case .success(let repositories):
                 self?.repositories = repositories.items
