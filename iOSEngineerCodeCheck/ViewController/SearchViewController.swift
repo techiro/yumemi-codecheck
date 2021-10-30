@@ -12,11 +12,11 @@ class SearchViewController: UITableViewController {
     @IBOutlet weak private var searchBar: UISearchBar!
     var alert = AlertViewController()
     var repositories: [Repository] = []
-    var index: Int!
+    // swiftlint:disable implicitly_unwrapped_optional
+    var selectedRepository: Repository!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         searchBar.delegate = self
         alert.delegate = self
     }
@@ -24,7 +24,7 @@ class SearchViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
             guard let detailVC = segue.destination as? DetailViewController else { return }
-            detailVC.repository = repositories[index]
+            detailVC.repository = selectedRepository
         }
     }
 
@@ -82,7 +82,7 @@ extension SearchViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        index = indexPath.row
+        selectedRepository = repositories[indexPath.row]
         performSegue(withIdentifier: "Detail", sender: self)
         self.view.endEditing(true)
     }
