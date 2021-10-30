@@ -9,18 +9,42 @@ import Foundation
 
 final class ImageAPI {
 
-    static func getImage(from url: String?, completion: @escaping (Result<Data, Error>) -> Void) {
+    func getImage(from url: String?, completion: @escaping (Result<Data, ImageError>) -> Void) {
 
         if let imgURL = url {
             URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, _, _) in
                 if let data = data {
                     completion(.success(data))
                 } else {
-                    completion(.failure(ImageError()))
+                    completion(.failure(.DataError(message: "画像が読み込めません")))
                 }
             }.resume()
+        } else {
+            completion(.failure(.URLError(message: "urlが正しくありません")))
         }
+    }
+
+    enum ImageError: Error {
+        case URLError(message: String)
+        case DataError(message: String)
     }
 }
 
-struct ImageError: Error {}
+#if DEBUG
+class MockImageAPI {
+    var isSuccess: Bool
+    init(isSuccess: Bool = true) {
+        self.isSuccess = isSuccess
+
+    }
+
+    func getImage(from url: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void) {
+
+        if isSuccess {
+            completion(.success(Data()))
+        } else {
+            completion(.failure(.URLError(message: "mock URLError")))
+        }
+    }
+}
+#endif
