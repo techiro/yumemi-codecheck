@@ -33,9 +33,9 @@ final class ImageAPI {
 #if DEBUG
 class MockImageAPI {
     var isSuccess: Bool
+
     init(isSuccess: Bool = true) {
         self.isSuccess = isSuccess
-
     }
 
     func getImage(from url: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void) {
