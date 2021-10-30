@@ -34,9 +34,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "061993C1A9D5577CEEDEF7AE"
-               BuildableName = "iOSEngineerCodeCheck.app"
-               BlueprintName = "iOSEngineerCodeCheck"
+               BlueprintIdentifier = "00859E2256456DF30531DCDF"
+               BuildableName = "iOSEngineerCodeCheckTests.xctest"
+               BlueprintName = "iOSEngineerCodeCheckTests"
                ReferencedContainer = "container:iOSEngineerCodeCheck.xcodeproj">
             </BuildableReference>
          </TestableReference>

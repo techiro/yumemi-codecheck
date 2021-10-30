@@ -35,5 +35,5 @@ targets:
 
     scheme:
       testTargets:
-        - iOSEngineerCodeCheck
+        - iOSEngineerCodeCheckTests
 

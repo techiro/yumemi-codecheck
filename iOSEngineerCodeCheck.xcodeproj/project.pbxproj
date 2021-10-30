@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */; };
 		134F8F26637EB2970968C830 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB960798E1841C495CCF3FF /* LaunchScreen.storyboard */; };
+		23ADDFCEDC0FB9921A51E93B /* GithubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF61C4DF89F2DDD4D8B6C612 /* GithubAPITests.swift */; };
 		38B65B299363B4780428D2B1 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A98E83697B8E0366EC1EDC9 /* ImageAPI.swift */; };
 		3E6E549A33156BD70ED9D958 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175C057F84ABF7F2577F7333 /* Main.storyboard */; };
 		4FE6C38F571BC3DFA4FA7016 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016DD8B0B80E66A15593CBD4 /* DetailViewController.swift */; };
@@ -53,6 +54,7 @@
 		D1BABC155F7A3A7942D0FD66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D6CBEA2E58B0679426EC2353 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DB1489B19FC4FFE9F1C5A5E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DF61C4DF89F2DDD4D8B6C612 /* GithubAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -132,6 +134,7 @@
 		FD802A8E04185AD1B788862F /* iOSEngineerCodeCheckTests */ = {
 			isa = PBXGroup;
 			children = (
+				DF61C4DF89F2DDD4D8B6C612 /* GithubAPITests.swift */,
 				B392FF3FFE3A55E95F20A4D7 /* Info.plist */,
 				A6EA457614D74ED35E6372C0 /* iOSEngineerCodeCheckTests.swift */,
 			);
@@ -241,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23ADDFCEDC0FB9921A51E93B /* GithubAPITests.swift in Sources */,
 				10593985253784F5D5FF6542 /* iOSEngineerCodeCheckTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
