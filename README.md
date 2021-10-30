@@ -58,10 +58,43 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 ```
 
 ※xcodegen,swiftlintがローカルの環境に導入されていなければ、Homebrewなどで環境構築してください
+
 参考:
 - xcodegen https://github.com/yonaskolb/XcodeGen
 - swiftlint https://qiita.com/OSR108/items/4b23b13bd23feada1921#2-homebrew-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB
 
+## ⚒工夫した点
+
+- Delegateメソッドを使用して、なるべく単一の責務になるように工夫した。
+- APIを叩いて、画像データが取得できていない時には初期画像を表示して、画像が取得できていないことを明示
+- 開発はGitHubのIssue/PRベースで開発を進めて、なるべく細かくコミットするように心がけました。
+- issueには画像を載せて今の進捗が一眼で分かるよう工夫しました。
+- SwiftLintを導入して、機械的に構文を確認しバグが含まれそうな部分を早期に修正することができました。
+- APIで情報取得に失敗した時は、エラーが起きたことをユーザーに知らせるアラートを設置しました。
+- UnitTestの導入を行った結果、エラーが出た時の処理に気づくことができました。
+
+## 🗂フォルダ構成
+
+### ViewControllers
+- SearchViewController 起動画面
+- DetailViewController 詳細画面
+- RepositoryTableViewCell　テーブルのセル
+- AlertViewController  失敗時のアラートを表示
+
+### Models
+
+### Modelフォルダ（APIの構造体やその構造体を使ったデータ取得モデル）
+
+- SearchRepositoriesResponse APIを叩いた時に取得するレスポンス
+- Repository レスポンスの中身
+- Owner Repositoryの中にネストしているOwnerモデル
+
+### Extensionフォルダ
+- URLのqueryを追加するコード
+
+### API 実際にAPIを叩いて、データを取得する部分
+- GithubAPI GithubのAPIを叩くコード
+- ImageAPI 画像URLから画像を取得するコード
 
 
 ## 期間
@@ -71,7 +104,6 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
 
 - macOS 11.3.1（20E241）
 - Xcode 13.0(13A233)
-
 
 ## 🎯開発方法
 
