@@ -26,3 +26,27 @@ struct Repository: Decodable {
 struct Owner: Decodable {
     let avatarUrl: String?
 }
+
+extension Repository {
+    static func mock() -> Repository {
+        return Repository(
+            id: 0,
+            fullName: "name",
+            language: "Swift",
+            stargazersCount: nil,
+            wachersCount: nil,
+            forksCount: nil,
+            openIssuesCount: nil,
+            owner: nil,
+            htmlUrl: nil
+        )
+    }
+}
+
+extension SearchRepositoriesResponse {
+    static func mock() -> SearchRepositoriesResponse {
+        return SearchRepositoriesResponse(items: [
+            Repository.mock()
+        ])
+    }
+}
