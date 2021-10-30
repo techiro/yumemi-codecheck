@@ -12,6 +12,7 @@ final class ImageAPI {
     func getImage(from url: String?, completion: @escaping (Result<Data, ImageError>) -> Void) {
 
         if let imgURL = url {
+            // swiftlint:disable force_unwrapping
             URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, _, _) in
                 if let data = data {
                     completion(.success(data))

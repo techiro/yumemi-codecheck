@@ -44,6 +44,7 @@ final class GitHubAPI: GitHubAPIProtocol {
 }
 
 extension GitHubAPI {
+    // swiftlint:disable force_unwrapping
     static let baseURL: URL = URL(string: "https://api.github.com/search/repositories")!
 
     enum APIError: Error {

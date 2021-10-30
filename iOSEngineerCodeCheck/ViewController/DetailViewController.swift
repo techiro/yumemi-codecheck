@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak private var forksLabel: UILabel!
     @IBOutlet weak private var issuesLabel: UILabel!
 
+    // swiftlint:disable implicitly_unwrapped_optional
     var repository: Repository!
     var alert = AlertViewController()
 
