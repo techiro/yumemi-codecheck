@@ -7,19 +7,7 @@
 
 import Foundation
 
-struct SearchRepositoriesResponse: Decodable, Equatable {
-    let items: [Repository]
-
-    static func == (lhs: SearchRepositoriesResponse, rhs: SearchRepositoriesResponse) -> Bool {
-        lhs.items == rhs.items
-    }
-
-}
-
 struct Repository: Decodable, Equatable {
-    static func == (lhs: Repository, rhs: Repository) -> Bool {
-        lhs.id == rhs.id
-    }
 
     let id: Int
     let fullName: String
@@ -30,12 +18,13 @@ struct Repository: Decodable, Equatable {
     let openIssuesCount: Int?
     let owner: Owner?
     let htmlUrl: String?
+
+    static func == (lhs: Repository, rhs: Repository) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
-struct Owner: Decodable {
-    let avatarUrl: String?
-}
-
+#if DEBUG
 extension Repository {
     static func mock() -> Repository {
         return Repository(
@@ -51,11 +40,4 @@ extension Repository {
         )
     }
 }
-
-extension SearchRepositoriesResponse {
-    static func mock() -> SearchRepositoriesResponse {
-        return SearchRepositoriesResponse(items: [
-            Repository.mock()
-        ])
-    }
-}
+#endif
