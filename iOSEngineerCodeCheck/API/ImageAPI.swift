@@ -30,7 +30,6 @@ final class ImageAPI {
     }
 }
 
-
 #if DEBUG
 class MockImageAPI {
     var isSuccess: Bool
@@ -48,10 +47,4 @@ class MockImageAPI {
         }
     }
 }
-
-extension MockImageAPI {
-    static let failedURL = "https://avatars.githubusercontent.com/u/..."
-    static let successURL = "https://avatars.githubusercontent.com/u/8255800?v=4"
-}
-
 #endif
