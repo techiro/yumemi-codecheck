@@ -31,6 +31,10 @@ class DetailViewController: UIViewController {
         forksLabel.text = "\(repository.forksCount ?? 0) forks"
         issuesLabel.text = "\(repository.openIssuesCount ?? 0) open issues"
 
+        setUpImage()
+    }
+
+    func setUpImage() {
         ImageAPI().getImage(from: repository.owner?.avatarUrl) { [weak self] result in
             switch result {
             case .success(let data):
@@ -48,7 +52,6 @@ class DetailViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension DetailViewController: UIAlertDelegate {
