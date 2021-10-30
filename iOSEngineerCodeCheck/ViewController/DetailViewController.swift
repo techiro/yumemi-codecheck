@@ -10,14 +10,15 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var starsLabel: UILabel!
-    @IBOutlet weak var watchersLabel: UILabel!
-    @IBOutlet weak var forksLabel: UILabel!
-    @IBOutlet weak var issuesLabel: UILabel!
+    @IBOutlet weak private var imageView: UIImageView!
+    @IBOutlet weak private var titleLabel: UILabel!
+    @IBOutlet weak private var languageLabel: UILabel!
+    @IBOutlet weak private var starsLabel: UILabel!
+    @IBOutlet weak private var watchersLabel: UILabel!
+    @IBOutlet weak private var forksLabel: UILabel!
+    @IBOutlet weak private var issuesLabel: UILabel!
 
+    // swiftlint:disable implicitly_unwrapped_optional
     var repository: Repository!
     var alert = AlertViewController()
 
@@ -44,9 +45,9 @@ class DetailViewController: UIViewController {
                 }
             case .failure(let error):
                 switch error {
-                case .DataError(let title):
+                case .dataError(let title):
                     self?.alert.setAlert(title: title, message: "")
-                case .URLError(let title):
+                case .urlError(let title):
                     self?.alert.setAlert(title: title, message: "")
                 }
             }

@@ -10,6 +10,7 @@ import XCTest
 
 class GitHubAPITests: XCTestCase {
 
+    // swiftlint:disable implicitly_unwrapped_optional
     var githubAPI: MockGitHubAPI!
 
     override func setUp() {
@@ -21,7 +22,7 @@ class GitHubAPITests: XCTestCase {
             switch result {
             case .success(let items):            XCTAssertEqual(items, SearchRepositoriesResponse.mock())
             case .failure(_):
-                fatalError()
+                fatalError("Not Equal")
             }
         }
 
@@ -38,7 +39,7 @@ class GitHubAPITests: XCTestCase {
                     XCTAssertEqual(message, "mock statusError")
 
                 default:
-                    fatalError()
+                    fatalError("Not statusError")
                 }
             }
         }
