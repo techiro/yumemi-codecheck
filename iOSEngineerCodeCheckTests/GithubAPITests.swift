@@ -20,8 +20,9 @@ class GitHubAPITests: XCTestCase {
     func test_fetchItemsIsEqualToMockItems() {
         githubAPI.fetchRepositories(word: "") {  result in
             switch result {
-            case .success(let items):            XCTAssertEqual(items, SearchRepositoriesResponse.mock())
-            case .failure(_):
+            case .success(let items):
+                XCTAssertEqual(items, SearchRepositoriesResponse.mock())
+            case .failure:
                 fatalError("Not Equal")
             }
         }
@@ -32,7 +33,7 @@ class GitHubAPITests: XCTestCase {
         githubAPI.isSuccess = false
         githubAPI.fetchRepositories(word: "") { result in
             switch result {
-            case .success(_): break
+            case .success: break
             case .failure(let error):
                 switch error {
                 case .statusCode(let message):
