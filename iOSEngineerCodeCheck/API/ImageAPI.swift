@@ -13,6 +13,7 @@ final class ImageAPI {
 
         if let imgURL = url {
             // swiftlint:disable force_unwrapping
+            // TODO: fix: force unwrapping
             URLSession.shared.dataTask(with: URL(string: imgURL)!) { (data, _, _) in
                 if let data = data {
                     completion(.success(data))
