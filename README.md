@@ -42,10 +42,32 @@ Issues を確認した上、本プロジェクトを [**Duplicate** してくだ
   
 </details>
 
+<details>
+<summary>頂いたレビュー概要</summary>
+  
+### 初級
+  
+- [/]  可読性の向上
+- [/]  安全性の向上
+- [x]  バグの修正
+- [x]  Fat VCの回避
+
+### 中級
+  
+- [/]  構造のリファクタリング
+- [/]  アーキテクチャの適用
+- [/]  テストの追加
+
+### ボーナス
+  
+- [ ]  UIのブラッシュアップ
+- [ ]  機能の追加
+  
+</details>
+
 ---
 
 ## セットアップ方法
-
 
 ```
 git clone https://github.com/techiro/yumemi-codecheck.git
@@ -56,7 +78,6 @@ cd yumemi-codecheck
 xcodegen
 open iOSEngineerCodeCheck.xcodeproj
 ```
-
 
 
 ※xcodegen,swiftlintがローカルの環境に導入されていなければ、Homebrewなどで環境構築してください
@@ -74,7 +95,6 @@ brew install xcodegen
 https://user-images.githubusercontent.com/35694946/139536016-0e811916-5b3c-4505-adcb-06e39a928625.mp4
 
 https://user-images.githubusercontent.com/35694946/139536140-43a4cf21-d975-4f12-b740-78e0e427d149.mp4
-
 
 
 ## ⚒工夫した点
