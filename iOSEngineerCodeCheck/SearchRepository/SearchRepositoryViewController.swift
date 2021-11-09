@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchRepositoryViewController: UIViewController {
 
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var tableView: UITableView!
@@ -43,7 +43,7 @@ class SearchViewController: UIViewController {
 
 }
 
-extension SearchViewController: SearchRepositoryPresenterOutput {
+extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
     func presentDetail(at: IndexPath) {
 
     }
@@ -54,7 +54,7 @@ extension SearchViewController: SearchRepositoryPresenterOutput {
 }
 
 // TableViewの操作
-extension SearchViewController: UITableViewDelegate {
+extension SearchRepositoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.selectRow(at: indexPath)
@@ -66,7 +66,7 @@ extension SearchViewController: UITableViewDelegate {
 }
 
 // MARK: TableView
-extension SearchViewController: UITableViewDataSource {
+extension SearchRepositoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell") as! RepositoryCell
         let repository = presenter.repository(index: indexPath)
@@ -81,7 +81,7 @@ extension SearchViewController: UITableViewDataSource {
 }
 
 // MARK: 検索バー
-extension SearchViewController: UISearchBarDelegate {
+extension SearchRepositoryViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }
