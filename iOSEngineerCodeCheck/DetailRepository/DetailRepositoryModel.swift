@@ -7,6 +7,13 @@
 
 import Foundation
 
-final class DetailRepositoryModel {
+protocol DetailRepositoryModelInput {
+    func fetchImage(from: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void)
+}
+final class DetailRepositoryModel: DetailRepositoryModelInput {
+    func fetchImage(from: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void) {
+        let api = ImageAPI()
+
+    }
 
 }

@@ -8,11 +8,11 @@
 import Foundation
 
 final class ImageAPI {
-    
+
     func getImage(from url: String?, completion: @escaping (Result<Data, ImageError>) -> Void) {
-        guard let url = url else { return completion(.failure(.urlError(message: "urlがStringではありません")))}
+        guard let url = url else { return completion(.failure(.urlError(message: "urlがStringではありません"))) }
         guard let imgURL = URL(string: url) else { return completion(.failure(.urlError(message: "urlが正しくありません"))) }
-        
+
         URLSession.shared.dataTask(with: imgURL) { (data, _, _) in
             if let data = data {
                 completion(.success(data))
@@ -21,7 +21,7 @@ final class ImageAPI {
             }
         }.resume()
     }
-    
+
     enum ImageError: Error {
         case urlError(message: String)
         case dataError(message: String)
@@ -31,13 +31,13 @@ final class ImageAPI {
 #if DEBUG
 class MockImageAPI {
     var isSuccess: Bool
-    
+
     init(isSuccess: Bool = true) {
         self.isSuccess = isSuccess
     }
-    
+
     func getImage(from url: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void) {
-        
+
         if isSuccess {
             completion(.success(Data()))
         } else {

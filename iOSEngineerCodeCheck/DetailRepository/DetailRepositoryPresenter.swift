@@ -16,13 +16,19 @@ protocol DetailRepositoryPresenterInput {
     var forksCount: String { get }
     var openIssuesCounts: String { get }
     var starsCount: String { get }
+
+    func fetchImage()
 }
 
 protocol DetailRepositoryPresenterOutput: AnyObject {
-
+    func setImage(image: UIImage?)
 }
 
 final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
+
+    private weak var view: DetailRepositoryPresenterOutput!
+    let repository: Repository
+
     var fullName: String {
         repository.fullName
     }
@@ -42,8 +48,18 @@ final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
         "\(repository.stargazersCount ?? 0) stars"
     }
 
-    private weak var view: DetailRepositoryPresenterOutput!
-    let repository: Repository
+    func fetchImage() {
+        let api = ImageAPI()
+        api.getImage(from: repository.owner?.avatarUrl) { result in
+            switch result {
+            case .success(let data):
+                self.view.setImage(image: UIImage(data: data))
+
+            case .failure:
+                print("error")
+            }
+        }
+    }
 
     init(view: DetailRepositoryPresenterOutput, repository: Repository) {
         self.view = view

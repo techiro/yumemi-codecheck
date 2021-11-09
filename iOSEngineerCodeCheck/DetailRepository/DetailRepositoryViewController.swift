@@ -27,6 +27,7 @@ class DetailRepositoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        presenter.fetchImage()
     }
 
     func setup() {
@@ -40,5 +41,10 @@ class DetailRepositoryViewController: UIViewController {
 }
 
 extension DetailRepositoryViewController: DetailRepositoryPresenterOutput {
+    func setImage(image: UIImage?) {
+        DispatchQueue.main.async { [weak self] in
+            self?.imageView.image = image
+        }
 
+    }
 }
