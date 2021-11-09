@@ -39,7 +39,15 @@ class SearchRepositoryViewController: UIViewController {
 
 extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
     func presentDetail(at: IndexPath) {
+        let detailVC = UIStoryboard(
+            name: "DetailRepository",
+            bundle: nil)
+            .instantiateInitialViewController() as! DetailRepositoryViewController
 
+        let detailPresenter = DetailRepositoryPresenter(view: detailVC, repository: presenter.repository(index: at))
+        detailVC.inject(presenter: detailPresenter)
+
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
     func updateRepositories(_ repositories: [Repository]) {
@@ -49,6 +57,12 @@ extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
 
 extension SearchRepositoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        presenter.selectRow(at: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.selectRow(at: indexPath)
     }

@@ -18,16 +18,27 @@ class DetailRepositoryViewController: UIViewController {
     @IBOutlet weak private var forksLabel: UILabel!
     @IBOutlet weak private var issuesLabel: UILabel!
 
-    var repository: Repository!
-    private var alert = AlertViewController()
+    private var presenter: DetailRepositoryPresenterInput!
+
+    func inject(presenter: DetailRepositoryPresenterInput) {
+        self.presenter = presenter
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = repository.fullName
-        languageLabel.text = "Written in \(repository.language ?? "")"
-        starsLabel.text = "\(repository.stargazersCount ?? 0) stars"
-        watchersLabel.text = "\(repository.wachersCount ?? 0) watchers"
-        forksLabel.text = "\(repository.forksCount ?? 0) forks"
-        issuesLabel.text = "\(repository.openIssuesCount ?? 0) open issues"
+        setup()
     }
+
+    func setup() {
+        titleLabel.text = presenter.fullName
+        languageLabel.text = presenter.language
+        starsLabel.text = presenter.starsCount
+        watchersLabel.text = presenter.wachersCount
+        forksLabel.text = presenter.forksCount
+        issuesLabel.text = presenter.openIssuesCounts
+    }
+}
+
+extension DetailRepositoryViewController: DetailRepositoryPresenterOutput {
+
 }
