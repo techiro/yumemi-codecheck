@@ -57,10 +57,6 @@ final class SearchRepositoryPresenter: SearchRepositoryInput {
     }
 
     func selectRow(at: IndexPath) {
-        // 実際のロジック
-        // brabra
-
-        // Presenter→View
         view.presentDetail(at: at)
     }
 }

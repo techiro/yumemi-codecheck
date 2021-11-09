@@ -24,13 +24,6 @@ class SearchRepositoryViewController: UIViewController {
         self.presenter = presenter
     }
 
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "Detail" {
-    //            guard let detailVC = segue.destination as? DetailViewController else { return }
-    //            detailVC.repository = selectedRepository
-    //        }
-    //    }
-
     private func setup() {
         self.title = "SearchRepository"
         // MARK: StoryboardのOutlet
@@ -54,19 +47,17 @@ extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
     }
 }
 
-// TableViewの操作
 extension SearchRepositoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.selectRow(at: indexPath)
-        // ここで色々なロジックは含まれない
     }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
 
-// MARK: TableView
 extension SearchRepositoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell") as! RepositoryCell
