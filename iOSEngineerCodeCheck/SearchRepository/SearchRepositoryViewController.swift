@@ -32,6 +32,7 @@ class SearchRepositoryViewController: UIViewController {
     //    }
 
     private func setup() {
+        self.title = "SearchRepository"
         // MARK: StoryboardのOutlet
         searchBar.delegate = self
         tableView.delegate = self
