@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="108" id="JG1-Ml-Ewl" customClass="RepositoryCell" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="449" height="108"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JG1-Ml-Ewl" id="afp-PH-HBB" customClass="RepositoryCell" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="449" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vdj-mO-c3V">
+                        <rect key="frame" x="0.0" y="0.0" width="449" height="108"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yRL-ws-1WZ">
+                                <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yRL-ws-1WZ" secondAttribute="height" multiplier="1:1" id="baq-X8-wqI"/>
+                                    <constraint firstAttribute="width" constant="108" id="weh-Uw-gmY"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="lKJ-u3-srg">
+                                <rect key="frame" x="124" y="0.0" width="325" height="108"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WD8-N9-ceU">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P78-DK-tNZ" userLabel="Language">
+                                        <rect key="frame" x="0.0" y="54" width="41.5" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="vdj-mO-c3V" secondAttribute="trailing" id="Cst-wQ-1Vi"/>
+                    <constraint firstItem="vdj-mO-c3V" firstAttribute="leading" secondItem="afp-PH-HBB" secondAttribute="leading" id="OIv-Sm-goj"/>
+                    <constraint firstItem="vdj-mO-c3V" firstAttribute="top" secondItem="afp-PH-HBB" secondAttribute="top" id="hK4-9A-1x2"/>
+                    <constraint firstAttribute="bottom" secondItem="vdj-mO-c3V" secondAttribute="bottom" id="vEW-1A-bJy"/>
+                </constraints>
+                <connections>
+                    <outlet property="iconImageView" destination="yRL-ws-1WZ" id="gZe-f7-THe"/>
+                    <outlet property="nameLabel" destination="WD8-N9-ceU" id="V0t-oA-8Or"/>
+                </connections>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImageView" destination="yRL-ws-1WZ" id="m7N-6c-7nx"/>
+                <outlet property="languageLabel" destination="P78-DK-tNZ" id="Tue-yU-5CJ"/>
+                <outlet property="nameLabel" destination="WD8-N9-ceU" id="NMI-eU-Mbp"/>
+            </connections>
+            <point key="canvasLocation" x="122.46376811594205" y="120.53571428571428"/>
+        </tableViewCell>
+    </objects>
+</document>
