@@ -10,7 +10,7 @@ import UIKit
 final class RepositoryCell: UITableViewCell {
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet private weak var languageLabel: UILabel!
     func setup(repository: Repository) {
         setupImage(repository: repository)
         DispatchQueue.main.async {

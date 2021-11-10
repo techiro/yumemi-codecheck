@@ -4,7 +4,7 @@
 
 # デフォルト有効のルールのうち、無効にするもの
 disabled_rules:
-- trailing_whitespace # コードの記載のない改行を許可するため
+- force_cast
 opt_in_rules: # デフォルト無効のルールのうち、有効にするもの
 - closure_end_indentation
 - closure_spacing
