@@ -38,6 +38,10 @@ class SearchRepositoryViewController: UIViewController {
 }
 
 extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
+    func showAlert(_ alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
+    }
+
     func presentDetail(at: IndexPath) {
         let detailVC = UIStoryboard(
             name: "DetailRepository",

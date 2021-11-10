@@ -20,6 +20,7 @@ protocol SearchRepositoryInput {
 protocol SearchRepositoryPresenterOutput: AnyObject {
     func updateRepositories(_ repositories: [Repository])
     func presentDetail(at: IndexPath)
+    func showAlert(_ alert: UIAlertController)
 }
 
 final class SearchRepositoryPresenter: SearchRepositoryInput {
@@ -46,8 +47,8 @@ final class SearchRepositoryPresenter: SearchRepositoryInput {
                     self?.view.updateRepositories(repositories)
                 }
             case .failure(let error):
-                let alert = AlertViewController()
-                alert.setAlert(title: error.localizedDescription, message: error.localizedDescription)
+                let alert = AlertView().setAlert(title: error.localizedDescription, message: error.localizedDescription)
+                self?.view.showAlert(alert)
             }
         }
     }
