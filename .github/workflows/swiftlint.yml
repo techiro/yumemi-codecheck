@@ -3,18 +3,17 @@ name: SwiftLint
 on:
   pull_request:
     branches: [ main ]
-    paths:
-      - '.github/workflows/swiftlint.yml'
-      - '.swiftlint.yml'
+    
+    paths: # .swiftファイルが変更にない場合は実行しない
       - '**/*.swift'
 jobs:
   build:
     runs-on: ubuntu-latest
     name: "Run Danger"
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Danger
-        uses: danger/swift@2.0.3
+        uses: docker://ghcr.io/danger/danger-swift-with-swiftlint:3.10.2
         with:
             args: --failOnErrors --no-publish-check
         env:
