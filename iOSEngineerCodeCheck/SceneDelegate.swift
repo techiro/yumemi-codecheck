@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let searchRepositoryViewController = UIStoryboard(name: "SearchRepository", bundle: .main).instantiateInitialViewController() as! SearchRepositoryViewController
+            let searchRepositoryViewController = UIStoryboard(name: "SearchRepository", bundle: .main)
+                .instantiateInitialViewController() as! SearchRepositoryViewController
 
             let model = SearchRepositoryModel()
             let presenter = SearchRepositoryPresenter(view: searchRepositoryViewController, model: model)
