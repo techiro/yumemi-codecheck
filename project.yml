@@ -9,6 +9,7 @@ fileGroups:
   - project.yml
   - README.md
   - .swiftlint.yml
+  - Dangerfile.swift
 
 targets:
   iOSEngineerCodeCheck:

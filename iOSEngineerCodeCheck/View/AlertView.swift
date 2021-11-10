@@ -8,14 +8,9 @@
 import Foundation
 import UIKit
 
-protocol UIAlertDelegate: AnyObject {
-    func displayAlert(alert: UIAlertController)
-}
+class AlertView {
 
-class AlertViewController {
-    weak var delegate: UIAlertDelegate?
-
-    func setAlert(title: String, message: String) {
+    func setAlert(title: String, message: String) -> UIAlertController {
         let alert: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
         let defaultAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -23,6 +18,6 @@ class AlertViewController {
         }
 
         alert.addAction(defaultAction)
-        delegate?.displayAlert(alert: alert)
+        return alert
     }
 }
