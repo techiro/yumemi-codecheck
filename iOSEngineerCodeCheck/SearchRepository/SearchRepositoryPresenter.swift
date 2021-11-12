@@ -47,7 +47,14 @@ final class SearchRepositoryPresenter: SearchRepositoryInput {
                     self?.view.updateRepositories(repositories)
                 }
             case .failure(let error):
-                let alert = AlertView().setAlert(title: error.localizedDescription, message: error.localizedDescription)
+                let message: String
+                switch error {
+                case .statusCode(let _message):
+                    message = _message
+                case .parse(let _message):
+                    message = _message
+                }
+                let alert = AlertView().setAlert(title: "Github通信エラー", message: message)
                 self?.view.showAlert(alert)
             }
         }
