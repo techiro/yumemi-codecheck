@@ -24,9 +24,14 @@ protocol DetailRepositoryPresenterOutput: AnyObject {
     func setImage(image: UIImage?)
 }
 
+protocol DetailRepositoryModelInput: AnyObject {
+    func fetchImage(from url: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void)
+}
 final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
 
     private weak var view: DetailRepositoryPresenterOutput!
+    private var model: DetailRepositoryModelInput!
+
     let repository: Repository
 
     var fullName: String {
@@ -49,8 +54,7 @@ final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
     }
 
     func fetchImage() {
-        let api = ImageAPI()
-        api.getImage(from: repository.owner?.avatarUrl) { result in
+        model.fetchImage(from: repository.owner?.avatarUrl) { result in
             switch result {
             case .success(let data):
                 self.view.setImage(image: UIImage(data: data))
@@ -61,9 +65,10 @@ final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
         }
     }
 
-    init(view: DetailRepositoryPresenterOutput, repository: Repository) {
+    init(view: DetailRepositoryPresenterOutput, repository: Repository, model: DetailRepositoryModelInput) {
         self.view = view
         self.repository = repository
+        self.model = model
     }
 
 }
