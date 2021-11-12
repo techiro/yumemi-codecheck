@@ -44,11 +44,11 @@ extension SearchViewController: SearchPresenterOutput {
 
     func presentDetail(at index: IndexPath) {
         let detailVC = UIStoryboard(
-            name: "DetailRepository",
+            name: "Detail",
             bundle: nil)
-            .instantiateInitialViewController() as! DetailRepositoryViewController
+            .instantiateInitialViewController() as! DetailViewController
 
-        let detailPresenter = DetailRepositoryPresenter(view: detailVC, repository: presenter.repository(index: index), model: DetailRepositoryModel())
+        let detailPresenter = DetailPresenter(view: detailVC, repository: presenter.repository(index: index), model: DetailModel())
         detailVC.inject(presenter: detailPresenter)
 
         navigationController?.pushViewController(detailVC, animated: true)

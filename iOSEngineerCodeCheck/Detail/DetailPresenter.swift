@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol DetailRepositoryPresenterInput {
+protocol DetailPresenterInput {
     var repository: Repository { get }
     var fullName: String { get }
     var language: String { get }
@@ -20,18 +20,18 @@ protocol DetailRepositoryPresenterInput {
     func fetchImage()
 }
 
-protocol DetailRepositoryPresenterOutput: AnyObject {
+protocol DetailPresenterOutput: AnyObject {
     func setImage(image: UIImage?)
     func showAlert(_ alert: UIAlertController)
 }
 
-protocol DetailRepositoryModelInput: AnyObject {
+protocol DetailModelInput: AnyObject {
     func fetchImage(from url: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void)
 }
-final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
+final class DetailPresenter: DetailPresenterInput {
 
-    private weak var view: DetailRepositoryPresenterOutput!
-    private var model: DetailRepositoryModelInput!
+    private weak var view: DetailPresenterOutput!
+    private var model: DetailModelInput!
 
     let repository: Repository
 
@@ -74,7 +74,7 @@ final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
         }
     }
 
-    init(view: DetailRepositoryPresenterOutput, repository: Repository, model: DetailRepositoryModelInput) {
+    init(view: DetailPresenterOutput, repository: Repository, model: DetailModelInput) {
         self.view = view
         self.repository = repository
         self.model = model

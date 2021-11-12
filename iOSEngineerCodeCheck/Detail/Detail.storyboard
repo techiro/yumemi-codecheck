@@ -8,11 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail Repository View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="eS9-6S-ilP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OLs-1f-uuJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController id="ANH-hN-9iZ" customClass="DetailRepositoryViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ANH-hN-9iZ" customClass="DetailViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3gu-Ch-Hbj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,6 +95,7 @@
                         <outlet property="watchersLabel" destination="IeZ-3W-0VK" id="J7V-7C-8KH"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OLs-1f-uuJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="286" y="153"/>
         </scene>
