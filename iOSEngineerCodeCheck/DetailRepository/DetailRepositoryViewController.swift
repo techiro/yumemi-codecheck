@@ -41,6 +41,10 @@ class DetailRepositoryViewController: UIViewController {
 }
 
 extension DetailRepositoryViewController: DetailRepositoryPresenterOutput {
+    func showAlert(_ alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
+    }
+
     func setImage(image: UIImage?) {
         DispatchQueue.main.async { [weak self] in
             self?.imageView.image = image

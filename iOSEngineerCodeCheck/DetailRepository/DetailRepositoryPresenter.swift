@@ -22,6 +22,7 @@ protocol DetailRepositoryPresenterInput {
 
 protocol DetailRepositoryPresenterOutput: AnyObject {
     func setImage(image: UIImage?)
+    func showAlert(_ alert: UIAlertController)
 }
 
 protocol DetailRepositoryModelInput: AnyObject {
@@ -58,9 +59,17 @@ final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
             switch result {
             case .success(let data):
                 self.view.setImage(image: UIImage(data: data))
+            case .failure(let error):
+                let message: String
+                switch error {
+                case .urlError(let _message):
+                    message = _message
 
-            case .failure:
-                print("error")
+                case .dataError(let _message):
+                    message = _message
+                }
+                let alert = AlertView().setAlert(title: "イメージエラー", message: message)
+                self.view.showAlert(alert)
             }
         }
     }
