@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailRepositoryViewController: UIViewController {
+class DetailViewController: UIViewController {
 
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var titleLabel: UILabel!
@@ -18,9 +18,9 @@ class DetailRepositoryViewController: UIViewController {
     @IBOutlet weak private var forksLabel: UILabel!
     @IBOutlet weak private var issuesLabel: UILabel!
 
-    private var presenter: DetailRepositoryPresenterInput!
+    private var presenter: DetailPresenterInput!
 
-    func inject(presenter: DetailRepositoryPresenterInput) {
+    func inject(presenter: DetailPresenterInput) {
         self.presenter = presenter
     }
 
@@ -40,7 +40,11 @@ class DetailRepositoryViewController: UIViewController {
     }
 }
 
-extension DetailRepositoryViewController: DetailRepositoryPresenterOutput {
+extension DetailViewController: DetailPresenterOutput {
+    func showAlert(_ alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
+    }
+
     func setImage(image: UIImage?) {
         DispatchQueue.main.async { [weak self] in
             self?.imageView.image = image

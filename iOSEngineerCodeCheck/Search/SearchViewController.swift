@@ -8,19 +8,19 @@
 
 import UIKit
 
-class SearchRepositoryViewController: UIViewController {
+class SearchViewController: UIViewController {
 
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var tableView: UITableView!
+    private var presenter: SearchInput!
 
-    private var presenter: SearchRepositoryInput!
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
 
     // Dependency Injection 依存関係の注入
-    func inject(presenter: SearchRepositoryInput) {
+    func inject(presenter: SearchInput) {
         self.presenter = presenter
     }
 
@@ -31,24 +31,24 @@ class SearchRepositoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 64
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = 100
         tableView.register(UINib(nibName: "RepositoryCell", bundle: nil), forCellReuseIdentifier: "RepositoryCell")
     }
 
 }
 
-extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
+extension SearchViewController: SearchPresenterOutput {
     func showAlert(_ alert: UIAlertController) {
         present(alert, animated: true, completion: nil)
     }
 
-    func presentDetail(at: IndexPath) {
+    func presentDetail(at index: IndexPath) {
         let detailVC = UIStoryboard(
-            name: "DetailRepository",
+            name: "Detail",
             bundle: nil)
-            .instantiateInitialViewController() as! DetailRepositoryViewController
+            .instantiateInitialViewController() as! DetailViewController
 
-        let detailPresenter = DetailRepositoryPresenter(view: detailVC, repository: presenter.repository(index: at))
+        let detailPresenter = DetailPresenter(view: detailVC, repository: presenter.repository(index: index), model: DetailModel())
         detailVC.inject(presenter: detailPresenter)
 
         navigationController?.pushViewController(detailVC, animated: true)
@@ -59,7 +59,7 @@ extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
     }
 }
 
-extension SearchRepositoryViewController: UITableViewDelegate {
+extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.selectRow(at: indexPath)
@@ -70,13 +70,9 @@ extension SearchRepositoryViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.selectRow(at: indexPath)
     }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
 }
 
-extension SearchRepositoryViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell") as! RepositoryCell
         let repository = presenter.repository(index: indexPath)
@@ -91,7 +87,7 @@ extension SearchRepositoryViewController: UITableViewDataSource {
 }
 
 // MARK: 検索バー
-extension SearchRepositoryViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }

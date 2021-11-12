@@ -9,30 +9,30 @@ import Foundation
 import UIKit
 
 // MARK: View→Presenter Viewが持ってる能力(パラメータ)
-protocol SearchRepositoryInput {
+protocol SearchInput {
     var numberOfRepositories: Int { get }
     func tap(_ sendar: UISearchBar)
-    func selectRow(at: IndexPath)
+    func selectRow(at index: IndexPath)
     func repository(index: IndexPath) -> Repository
 }
 
 // MARK: Presenter→View
-protocol SearchRepositoryPresenterOutput: AnyObject {
+protocol SearchPresenterOutput: AnyObject {
     func updateRepositories(_ repositories: [Repository])
-    func presentDetail(at: IndexPath)
+    func presentDetail(at index: IndexPath)
     func showAlert(_ alert: UIAlertController)
 }
 
-final class SearchRepositoryPresenter: SearchRepositoryInput {
+final class SearchPresenter: SearchInput {
 
     var numberOfRepositories: Int {
         return repositories.count
     }
     private(set) var repositories: [Repository] = []
-    private weak var view: SearchRepositoryPresenterOutput!
-    private var model: SearchRepositoryModelInput
+    private weak var view: SearchPresenterOutput!
+    private var model: SearchModelInput
 
-    init(view: SearchRepositoryPresenterOutput, model: SearchRepositoryModelInput) {
+    init(view: SearchPresenterOutput, model: SearchModelInput) {
         self.view = view
         self.model = model
     }
@@ -47,7 +47,14 @@ final class SearchRepositoryPresenter: SearchRepositoryInput {
                     self?.view.updateRepositories(repositories)
                 }
             case .failure(let error):
-                let alert = AlertView().setAlert(title: error.localizedDescription, message: error.localizedDescription)
+                let errorMessage: String
+                switch error {
+                case .statusCode(let message):
+                    errorMessage = message
+                case .parse(let message):
+                    errorMessage = message
+                }
+                let alert = AlertView().setAlert(title: "Github通信エラー", message: errorMessage)
                 self?.view.showAlert(alert)
             }
         }
@@ -57,7 +64,7 @@ final class SearchRepositoryPresenter: SearchRepositoryInput {
         return repository
     }
 
-    func selectRow(at: IndexPath) {
-        view.presentDetail(at: at)
+    func selectRow(at index: IndexPath) {
+        view.presentDetail(at: index)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-protocol DetailRepositoryPresenterInput {
+protocol DetailPresenterInput {
     var repository: Repository { get }
     var fullName: String { get }
     var language: String { get }
@@ -20,13 +20,19 @@ protocol DetailRepositoryPresenterInput {
     func fetchImage()
 }
 
-protocol DetailRepositoryPresenterOutput: AnyObject {
+protocol DetailPresenterOutput: AnyObject {
     func setImage(image: UIImage?)
+    func showAlert(_ alert: UIAlertController)
 }
 
-final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
+protocol DetailModelInput: AnyObject {
+    func fetchImage(from url: String?, completion: @escaping (Result<Data, ImageAPI.ImageError>) -> Void)
+}
+final class DetailPresenter: DetailPresenterInput {
 
-    private weak var view: DetailRepositoryPresenterOutput!
+    private weak var view: DetailPresenterOutput!
+    private var model: DetailModelInput!
+
     let repository: Repository
 
     var fullName: String {
@@ -49,21 +55,29 @@ final class DetailRepositoryPresenter: DetailRepositoryPresenterInput {
     }
 
     func fetchImage() {
-        let api = ImageAPI()
-        api.getImage(from: repository.owner?.avatarUrl) { result in
+        model.fetchImage(from: repository.owner?.avatarUrl) { result in
             switch result {
             case .success(let data):
                 self.view.setImage(image: UIImage(data: data))
+            case .failure(let error):
+                let errorMessage: String
+                switch error {
+                case .urlError(let message):
+                    errorMessage = message
 
-            case .failure:
-                print("error")
+                case .dataError(let message):
+                    errorMessage = message
+                }
+                let alert = AlertView().setAlert(title: "イメージエラー", message: errorMessage)
+                self.view.showAlert(alert)
             }
         }
     }
 
-    init(view: DetailRepositoryPresenterOutput, repository: Repository) {
+    init(view: DetailPresenterOutput, repository: Repository, model: DetailModelInput) {
         self.view = view
         self.repository = repository
+        self.model = model
     }
 
 }

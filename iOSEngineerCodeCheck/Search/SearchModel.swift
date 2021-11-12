@@ -6,11 +6,11 @@
 //
 
 import Foundation
-protocol SearchRepositoryModelInput {
+protocol SearchModelInput {
     func fetchRepository(word: String, completion: @escaping (Result<[Repository], GitHubAPI.APIError>) -> Void)
 }
 
-final class SearchRepositoryModel: SearchRepositoryModelInput {
+final class SearchModel: SearchModelInput {
 
     func fetchRepository(word: String, completion: @escaping (Result<[Repository], GitHubAPI.APIError>) -> Void) {
         let api = GitHubAPI()
