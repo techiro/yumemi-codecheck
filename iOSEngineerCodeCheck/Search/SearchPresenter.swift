@@ -47,14 +47,14 @@ final class SearchPresenter: SearchInput {
                     self?.view.updateRepositories(repositories)
                 }
             case .failure(let error):
-                let message: String
+                let errorMessage: String
                 switch error {
-                case .statusCode(let _message):
-                    message = _message
-                case .parse(let _message):
-                    message = _message
+                case .statusCode(let message):
+                    errorMessage = message
+                case .parse(let message):
+                    errorMessage = message
                 }
-                let alert = AlertView().setAlert(title: "Github通信エラー", message: message)
+                let alert = AlertView().setAlert(title: "Github通信エラー", message: errorMessage)
                 self?.view.showAlert(alert)
             }
         }

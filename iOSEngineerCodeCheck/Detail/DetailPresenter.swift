@@ -60,15 +60,15 @@ final class DetailPresenter: DetailPresenterInput {
             case .success(let data):
                 self.view.setImage(image: UIImage(data: data))
             case .failure(let error):
-                let message: String
+                let errorMessage: String
                 switch error {
-                case .urlError(let _message):
-                    message = _message
+                case .urlError(let message):
+                    errorMessage = message
 
-                case .dataError(let _message):
-                    message = _message
+                case .dataError(let message):
+                    errorMessage = message
                 }
-                let alert = AlertView().setAlert(title: "イメージエラー", message: message)
+                let alert = AlertView().setAlert(title: "イメージエラー", message: errorMessage)
                 self.view.showAlert(alert)
             }
         }
