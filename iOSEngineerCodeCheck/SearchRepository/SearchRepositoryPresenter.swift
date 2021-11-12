@@ -12,14 +12,14 @@ import UIKit
 protocol SearchRepositoryInput {
     var numberOfRepositories: Int { get }
     func tap(_ sendar: UISearchBar)
-    func selectRow(at: IndexPath)
+    func selectRow(at index: IndexPath)
     func repository(index: IndexPath) -> Repository
 }
 
 // MARK: Presenter→View
 protocol SearchRepositoryPresenterOutput: AnyObject {
     func updateRepositories(_ repositories: [Repository])
-    func presentDetail(at: IndexPath)
+    func presentDetail(at index: IndexPath)
     func showAlert(_ alert: UIAlertController)
 }
 
@@ -57,7 +57,7 @@ final class SearchRepositoryPresenter: SearchRepositoryInput {
         return repository
     }
 
-    func selectRow(at: IndexPath) {
-        view.presentDetail(at: at)
+    func selectRow(at index: IndexPath) {
+        view.presentDetail(at: index)
     }
 }

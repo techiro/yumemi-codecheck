@@ -12,8 +12,8 @@ class SearchRepositoryViewController: UIViewController {
 
     @IBOutlet weak private var searchBar: UISearchBar!
     @IBOutlet weak private var tableView: UITableView!
-
     private var presenter: SearchRepositoryInput!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -31,7 +31,7 @@ class SearchRepositoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 64
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = 100
         tableView.register(UINib(nibName: "RepositoryCell", bundle: nil), forCellReuseIdentifier: "RepositoryCell")
     }
 
@@ -42,13 +42,13 @@ extension SearchRepositoryViewController: SearchRepositoryPresenterOutput {
         present(alert, animated: true, completion: nil)
     }
 
-    func presentDetail(at: IndexPath) {
+    func presentDetail(at index: IndexPath) {
         let detailVC = UIStoryboard(
             name: "DetailRepository",
             bundle: nil)
             .instantiateInitialViewController() as! DetailRepositoryViewController
 
-        let detailPresenter = DetailRepositoryPresenter(view: detailVC, repository: presenter.repository(index: at))
+        let detailPresenter = DetailRepositoryPresenter(view: detailVC, repository: presenter.repository(index: index), model: DetailRepositoryModel())
         detailVC.inject(presenter: detailPresenter)
 
         navigationController?.pushViewController(detailVC, animated: true)
@@ -69,10 +69,6 @@ extension SearchRepositoryViewController: UITableViewDelegate {
                    didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         presenter.selectRow(at: indexPath)
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
 }
 
