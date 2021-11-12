@@ -15,13 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            let searchRepositoryViewController = UIStoryboard(name: "SearchRepository", bundle: .main)
-                .instantiateInitialViewController() as! SearchRepositoryViewController
+            let searchViewController = UIStoryboard(name: "Search", bundle: .main)
+                .instantiateInitialViewController() as! SearchViewController
 
-            let model = SearchRepositoryModel()
-            let presenter = SearchRepositoryPresenter(view: searchRepositoryViewController, model: model)
-            searchRepositoryViewController.inject(presenter: presenter)
-            let navigationController = UINavigationController(rootViewController: searchRepositoryViewController)
+            let model = SearchModel()
+            let presenter = SearchPresenter(view: searchViewController, model: model)
+            searchViewController.inject(presenter: presenter)
+            let navigationController = UINavigationController(rootViewController: searchViewController)
             window.rootViewController = navigationController
             self.window = window
             window.makeKeyAndVisible()

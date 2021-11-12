@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 // MARK: View→Presenter Viewが持ってる能力(パラメータ)
-protocol SearchRepositoryInput {
+protocol SearchInput {
     var numberOfRepositories: Int { get }
     func tap(_ sendar: UISearchBar)
     func selectRow(at index: IndexPath)
@@ -17,22 +17,22 @@ protocol SearchRepositoryInput {
 }
 
 // MARK: Presenter→View
-protocol SearchRepositoryPresenterOutput: AnyObject {
+protocol SearchPresenterOutput: AnyObject {
     func updateRepositories(_ repositories: [Repository])
     func presentDetail(at index: IndexPath)
     func showAlert(_ alert: UIAlertController)
 }
 
-final class SearchRepositoryPresenter: SearchRepositoryInput {
+final class SearchPresenter: SearchInput {
 
     var numberOfRepositories: Int {
         return repositories.count
     }
     private(set) var repositories: [Repository] = []
-    private weak var view: SearchRepositoryPresenterOutput!
-    private var model: SearchRepositoryModelInput
+    private weak var view: SearchPresenterOutput!
+    private var model: SearchModelInput
 
-    init(view: SearchRepositoryPresenterOutput, model: SearchRepositoryModelInput) {
+    init(view: SearchPresenterOutput, model: SearchModelInput) {
         self.view = view
         self.model = model
     }
